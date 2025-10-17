@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação Rápida - CoastalNomad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ddd;
+        }
+        .test.success {
+            border-left-color: #4CAF50;
+        }
+        .test.error {
+            border-left-color: #f44336;
+        }
+        .test h3 {
+            margin-top: 0;
+        }
+        .success { color: #4CAF50; }
+        .error { color: #f44336; }
+        pre {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #0077CC;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Verificação do Sistema CoastalNomad</h1>
+    <p>Esta página testa se todos os arquivos estão carregando corretamente no GitHub Pages.</p>
+    
+    <div id="tests"></div>
+    
+    <div style="margin-top: 30px; text-align: center;">
+        <a href="properties.html" class="btn">Ir para Propriedades</a>
+        <a href="index.html" class="btn">Ir para Home</a>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script>
+        const testsDiv = document.getElementById('tests');
+        let allPassed = true;
+        
+        function addTest(title, passed, details) {
+            const test = document.createElement('div');
+            test.className = `test ${passed ? 'success' : 'error'}`;
+            test.innerHTML = `
+                <h3>${passed ? '✅' : '❌'} ${title}</h3>
+                <p>${details}</p>
+            `;
+            testsDiv.appendChild(test);
+            if (!passed) allPassed = false;
+        }
+        
+        // Test 1: data.js loaded
+        if (typeof propertiesData !== 'undefined') {
+            addTest(
+                'Teste 1: data.js carregou',
+                true,
+                `<span class="success">Arquivo data.js carregado com sucesso!</span><br>
+                 Propriedades encontradas: <strong>${propertiesData.length}</strong>`
+            );
+        } else {
+            addTest(
+                'Teste 1: data.js carregou',
+                false,
+                '<span class="error">ERRO: Arquivo data.js NÃO carregou!</span><br>Verifique se o arquivo existe na pasta js/'
+            );
+        }
+        
+        // Test 2: Properties data structure
+        if (propertiesData && propertiesData.length > 0) {
+            const firstProp = propertiesData[0];
+            const hasRequiredFields = firstProp.id && firstProp.title && firstProp.images && firstProp.amenities;
+            
+            addTest(
+                'Teste 2: Estrutura dos dados',
+                hasRequiredFields,
+                hasRequiredFields ? 
+                    '<span class="success">Estrutura dos dados está correta!</span><br>Primeira propriedade: ' + firstProp.title :
+                    '<span class="error">Estrutura dos dados está incorreta</span>'
+            );
+        }
+        
+        // Test 3: Check for getUrlParameter function
+        let propertiesJsLoaded = false;
+        fetch('js/properties.js')
+            .then(response => response.text())
+            .then(text => {
+                const hasGetUrlParameter = text.includes('function getUrlParameter');
+                const hasToggleSave = text.includes('function toggleSave');
+                
+                addTest(
+                    'Teste 3: properties.js atualizado',
+                    hasGetUrlParameter && hasToggleSave,
+                    hasGetUrlParameter && hasToggleSave ?
+                        '<span class="success">Arquivo properties.js está atualizado!</span><br>✅ getUrlParameter() encontrada<br>✅ toggleSave() encontrada' :
+                        `<span class="error">Arquivo properties.js NÃO está atualizado!</span><br>
+                         ${hasGetUrlParameter ? '✅' : '❌'} getUrlParameter()<br>
+                         ${hasToggleSave ? '✅' : '❌'} toggleSave()<br>
+                         <strong>SOLUÇÃO: Você precisa fazer o git push dos arquivos corrigidos!</strong>`
+                );
+                
+                propertiesJsLoaded = true;
+            })
+            .catch(error => {
+                addTest(
+                    'Teste 3: properties.js atualizado',
+                    false,
+                    '<span class="error">ERRO ao carregar properties.js: ' + error.message + '</span>'
+                );
+            });
+        
+        // Test 4: Check property.js
+        fetch('js/property.js')
+            .then(response => response.text())
+            .then(text => {
+                const hasGetUrlParameter = text.includes('function getUrlParameter');
+                const hasDebugLogs = text.includes('Property page loading');
+                
+                addTest(
+                    'Teste 4: property.js atualizado',
+                    hasGetUrlParameter && hasDebugLogs,
+                    hasGetUrlParameter && hasDebugLogs ?
+                        '<span class="success">Arquivo property.js está atualizado!</span><br>✅ getUrlParameter() encontrada<br>✅ Debug logs encontrados' :
+                        `<span class="error">Arquivo property.js NÃO está atualizado!</span><br>
+                         ${hasGetUrlParameter ? '✅' : '❌'} getUrlParameter()<br>
+                         ${hasDebugLogs ? '✅' : '❌'} Debug logs<br>
+                         <strong>SOLUÇÃO: Você precisa fazer o git push dos arquivos corrigidos!</strong>`
+                );
+            })
+            .catch(error => {
+                addTest(
+                    'Teste 4: property.js atualizado',
+                    false,
+                    '<span class="error">ERRO ao carregar property.js: ' + error.message + '</span>'
+                );
+            });
+        
+        // Test 5: Test property rendering (simplified)
+        setTimeout(() => {
+            if (propertiesData && propertiesData.length > 0) {
+                const testDiv = document.createElement('div');
+                testDiv.innerHTML = `
+                    <div class="property-card">
+                        <img src="${propertiesData[0].images[0]}" width="100" alt="test">
+                        <h4>${propertiesData[0].title}</h4>
+                    </div>
+                `;
+                
+                addTest(
+                    'Teste 5: Renderização de propriedade',
+                    true,
+                    '<span class="success">Dados podem ser renderizados!</span><br>' + testDiv.innerHTML
+                );
+            }
+            
+            // Final summary
+            const summary = document.createElement('div');
+            summary.className = `test ${allPassed ? 'success' : 'error'}`;
+            summary.innerHTML = `
+                <h2>${allPassed ? '🎉' : '⚠️'} Resultado Final</h2>
+                <p>${allPassed ? 
+                    '<strong class="success">Todos os testes passaram!</strong><br>O sistema deveria estar funcionando. Se properties.html ainda não funciona, limpe o cache do navegador (Ctrl+Shift+R).' :
+                    '<strong class="error">Alguns testes falharam!</strong><br>Veja os erros acima e siga as instruções de solução.'
+                }</p>
+            `;
+            testsDiv.appendChild(summary);
+            
+            // Add instructions
+            const instructions = document.createElement('div');
+            instructions.className = 'test';
+            instructions.innerHTML = `
+                <h3>📋 Instruções</h3>
+                <p><strong>Se os testes 3 ou 4 falharam:</strong></p>
+                <pre>cd coastalnomad
+git add js/properties.js js/property.js
+git commit -m "Fix: Add missing functions"
+git push origin main
+# Aguarde 5-10 minutos e teste novamente</pre>
+                
+                <p><strong>Se todos os testes passaram mas properties.html não funciona:</strong></p>
+                <ol>
+                    <li>Pressione Ctrl + Shift + R para limpar o cache</li>
+                    <li>Abra o Console (F12 → Console)</li>
+                    <li>Procure por erros vermelhos</li>
+                    <li>Me envie um print do console se houver erros</li>
+                </ol>
+                
+                <p><strong>Última modificação deste arquivo:</strong> ${new Date().toLocaleString('pt-BR')}</p>
+            `;
+            testsDiv.appendChild(instructions);
+        }, 1000);
+    </script>
+</body>
+</html>

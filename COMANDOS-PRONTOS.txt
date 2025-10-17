@@ -1,0 +1,140 @@
+===========================================
+  COMANDOS PRONTOS - COPIE E COLE
+===========================================
+
+IMPORTANTE: Copie UM BLOCO por vez!
+
+===========================================
+  BLOCO 1: Navegue até a pasta
+===========================================
+
+cd coastalnomad
+
+
+===========================================
+  BLOCO 2: Verifique status
+===========================================
+
+git status
+
+
+===========================================
+  BLOCO 3: Adicione arquivos
+===========================================
+
+git add .
+
+
+===========================================
+  BLOCO 4: Faça commit
+===========================================
+
+git commit -m "Fix: Add getUrlParameter functions to properties and property pages"
+
+
+===========================================
+  BLOCO 5: Envie para GitHub (TENTE MAIN)
+===========================================
+
+git push origin main
+
+
+===========================================
+  BLOCO 6: Se MAIN falhar, use MASTER
+===========================================
+
+git push origin master
+
+
+===========================================
+  DEPOIS DO PUSH:
+===========================================
+
+1. AGUARDE 10 MINUTOS ⏰
+
+2. ACESSE ESTE LINK PARA TESTAR:
+   https://genautech.github.io/coastalnomad/verify.html
+
+3. LIMPE O CACHE DO NAVEGADOR:
+   - Windows/Linux: Ctrl + Shift + R
+   - Mac: Cmd + Shift + R
+
+4. SE TODOS OS TESTES PASSAREM, ACESSE:
+   https://genautech.github.io/coastalnomad/properties.html
+
+
+===========================================
+  SE DER ERRO DE AUTENTICAÇÃO:
+===========================================
+
+1. Configure usuário:
+
+git config --global user.name "Seu Nome"
+git config --global user.email "seu@email.com"
+
+2. Se pedir senha, use TOKEN do GitHub:
+   - Vá em: https://github.com/settings/tokens
+   - Clique em "Generate new token (classic)"
+   - Selecione "repo"
+   - Copie o token
+   - Use como senha
+
+
+===========================================
+  VERIFICAR SE DEU CERTO:
+===========================================
+
+git log -1 --oneline
+
+
+===========================================
+  ATALHO SUPER RÁPIDO (TUDO DE UMA VEZ):
+===========================================
+
+cd coastalnomad && git add . && git commit -m "Fix properties" && git push origin main
+
+
+===========================================
+  TESTE NO NAVEGADOR:
+===========================================
+
+1. Abra: https://genautech.github.io/coastalnomad/verify.html
+2. Todos os testes devem passar ✅
+3. Abra: https://genautech.github.io/coastalnomad/properties.html
+4. Deve mostrar 8 propriedades ✅
+
+
+===========================================
+  ARQUIVOS QUE DEVEM ESTAR NA PASTA:
+===========================================
+
+coastalnomad/
+├── index.html
+├── properties.html
+├── property.html
+├── verify.html          ⭐ NOVO
+├── js/
+│   ├── properties.js    ⭐ CORRIGIDO
+│   ├── property.js      ⭐ CORRIGIDO
+│   └── data.js
+└── ... outros arquivos
+
+
+===========================================
+  DICA: Use o script automático!
+===========================================
+
+Windows: Clique duas vezes em deploy.bat
+Mac/Linux: Execute: bash deploy.sh
+
+
+===========================================
+
+FIM - Boa sorte! 🚀
+
+Se precisar de ajuda, me envie:
+1. Print do verify.html
+2. Print do Console (F12)
+3. Resultado de: git log -1 --oneline
+
+===========================================
