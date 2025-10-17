@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse premium coastal properties in Brazil perfect for digital nomads. Curitiba, Florianópolis, Balneário Camboriú and more.">
+    <title>Properties - CoastalNomad</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span>CoastalNomad</span>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="properties.html" class="nav-link active">Properties</a>
+                    <a href="events-travel.html" class="nav-link">Events & Travel</a>
+                    <a href="buying-process.html" class="nav-link">How to Buy</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20interested%20in%20coastal%20properties" target="_blank" class="btn btn-primary btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Contact Us
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Find Your Perfect Property</h1>
+            <p>Explore our curated selection of coastal properties designed for digital nomads</p>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filters-header">
+                    <h3><i class="fas fa-filter"></i> Filters</h3>
+                    <button class="btn-text" id="clearFilters">Clear All</button>
+                </div>
+                
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label>Location</label>
+                        <select id="filterLocation" class="filter-select">
+                            <option value="">All Locations</option>
+                            <option value="curitiba">Curitiba</option>
+                            <option value="florianopolis">Florianópolis</option>
+                            <option value="balneario">Balneário Camboriú</option>
+                            <option value="ilha-mel">Ilha do Mel</option>
+                            <option value="guaratuba">Guaratuba</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Property Type</label>
+                        <select id="filterType" class="filter-select">
+                            <option value="">All Types</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House</option>
+                            <option value="condo">Condo</option>
+                            <option value="land">Land</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Price Range (USD)</label>
+                        <select id="filterPrice" class="filter-select">
+                            <option value="">Any Price</option>
+                            <option value="0-100000">Up to $100k</option>
+                            <option value="100000-250000">$100k - $250k</option>
+                            <option value="250000-500000">$250k - $500k</option>
+                            <option value="500000+">$500k+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Lifestyle</label>
+                        <select id="filterLifestyle" class="filter-select">
+                            <option value="">Any Lifestyle</option>
+                            <option value="beach">🏄 Beach Life</option>
+                            <option value="mountain">🌲 Mountain Vibes</option>
+                            <option value="urban">🏙️ Urban Hub</option>
+                            <option value="wellness">🧘 Wellness</option>
+                            <option value="creative">🎨 Creative Community</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Amenities Filters -->
+                <div class="amenities-filters">
+                    <label>Amenities</label>
+                    <div class="amenities-checkboxes">
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="fiber" class="amenity-checkbox">
+                            <span>🚀 Fiber Internet</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="coworking" class="amenity-checkbox">
+                            <span>☕ Coworking Nearby</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="beach" class="amenity-checkbox">
+                            <span>🏖️ Beach Access</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="pool" class="amenity-checkbox">
+                            <span>🏊 Pool</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="gym" class="amenity-checkbox">
+                            <span>💪 Gym</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-info">
+                <p id="resultsCount">Showing <strong>8</strong> properties</p>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="properties-section">
+        <div class="container">
+            <div class="properties-grid" id="propertiesGrid">
+                <!-- Properties will be loaded by JavaScript -->
+            </div>
+            
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No properties found</h3>
+                <p>Try adjusting your filters to see more results</p>
+                <button class="btn btn-primary" id="resetFiltersBtn">Reset Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Can't Find What You're Looking For?</h2>
+                <p>Let us know your requirements and we'll find the perfect property for you</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20looking%20for%20a%20specific%20type%20of%20property" target="_blank" class="btn btn-large btn-whatsapp-large">
+                        <i class="fab fa-whatsapp"></i> Tell Us What You Need
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <span>CoastalNomad</span>
+                    </div>
+                    <p>Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="properties.html">All Properties</a></li>
+                        <li><a href="properties.html?location=curitiba">Curitiba</a></li>
+                        <li><a href="properties.html?location=florianopolis">Florianópolis</a></li>
+                        <li><a href="properties.html?location=balneario">Balneário Camboriú</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="blog.html?category=guides">Destination Guides</a></li>
+                        <li><a href="blog.html?category=hacks">Nomad Life Hacks</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> +55 (41) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> rodrigo@coastalnomad.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Curitiba, Paraná, Brazil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CoastalNomad. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/properties.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
