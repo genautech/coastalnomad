@@ -642,22 +642,34 @@ Each property includes:
 
 This static website can be deployed to:
 
-1. **Vercel** (Recommended)
+1. **GitHub Pages** (Currently Deployed) ⭐
+   - **Repository**: https://github.com/genautech/coastalnomad
+   - **Live URL**: https://genautech.github.io/coastalnomad/
+   - Free hosting
+   - Easy updates via Git
+   - **Deploy Steps**:
+     ```bash
+     git clone https://github.com/genautech/coastalnomad.git
+     cd coastalnomad
+     # Add/modify files
+     git add .
+     git commit -m "Your message"
+     git push origin main
+     ```
+   - Automatic deployment in 2-5 minutes
+
+2. **Vercel** (Alternative)
    - Free tier available
    - Automatic HTTPS
    - Global CDN
    - Easy custom domain
 
-2. **Netlify**
+3. **Netlify** (Alternative)
    - Drag & drop deployment
    - Form handling built-in
    - Free tier generous
 
-3. **GitHub Pages**
-   - Free hosting
-   - Good for testing
-
-4. **AWS S3 + CloudFront**
+4. **AWS S3 + CloudFront** (Enterprise)
    - Scalable
    - Professional setup
 

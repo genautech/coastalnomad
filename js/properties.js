@@ -3,6 +3,12 @@
 let allProperties = [...propertiesData];
 let filteredProperties = [...propertiesData];
 
+// Get URL parameter helper function
+function getUrlParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Load URL parameters and apply filters
     loadFiltersFromURL();
@@ -208,6 +214,22 @@ function createPropertyCard(property) {
             </div>
         </div>
     `;
+}
+
+// Toggle Save Property (favorites)
+function toggleSave(propertyId) {
+    const savedProperties = JSON.parse(localStorage.getItem('saved_properties') || '[]');
+    const index = savedProperties.indexOf(propertyId);
+    
+    if (index > -1) {
+        savedProperties.splice(index, 1);
+        alert('Property removed from favorites!');
+    } else {
+        savedProperties.push(propertyId);
+        alert('Property saved to favorites!');
+    }
+    
+    localStorage.setItem('saved_properties', JSON.stringify(savedProperties));
 }
 
 // Share Property

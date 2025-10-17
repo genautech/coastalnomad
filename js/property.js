@@ -2,22 +2,37 @@
 
 let currentProperty = null;
 
+// Get URL parameter helper function
+function getUrlParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🔍 Property page loading...');
+    console.log('📊 Properties data available:', typeof propertiesData !== 'undefined');
+    console.log('📊 Number of properties:', propertiesData ? propertiesData.length : 0);
+    
     const propertyId = parseInt(getUrlParameter('id'));
+    console.log('🆔 Property ID from URL:', propertyId);
     
     if (!propertyId) {
+        console.warn('⚠️ No property ID in URL, redirecting...');
         window.location.href = 'properties.html';
         return;
     }
     
     currentProperty = propertiesData.find(p => p.id === propertyId);
+    console.log('🏠 Property found:', currentProperty ? currentProperty.title : 'NOT FOUND');
     
     if (!currentProperty) {
+        console.error('❌ Property not found in data');
         alert('Property not found');
         window.location.href = 'properties.html';
         return;
     }
     
+    console.log('✅ Loading property details...');
     loadPropertyDetails();
     setupGallery();
     setupFAQ();
@@ -27,13 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Update WhatsApp links
     updateWhatsAppLinks();
+    console.log('✅ Property page fully loaded!');
 });
 
 // Load property details
 function loadPropertyDetails() {
-    // Set title and location
-    document.getElementById('propertyTitle').textContent = currentProperty.title;
-    document.getElementById('propertyLocation').querySelector('span').textContent = currentProperty.location;
+    try {
+        console.log('📝 Setting title:', currentProperty.title);
+        // Set title and location
+        document.getElementById('propertyTitle').textContent = currentProperty.title;
+        document.getElementById('propertyLocation').querySelector('span').textContent = currentProperty.location;
+    } catch (error) {
+        console.error('❌ Error setting title/location:', error);
+    }
     
     // Set overview
     document.getElementById('propBedrooms').textContent = currentProperty.bedrooms;
@@ -71,29 +92,50 @@ function loadPropertyDetails() {
         }, 300 + (index * 100));
     });
     
-    // Load amenities
-    const amenitiesGrid = document.getElementById('amenitiesGrid');
-    amenitiesGrid.innerHTML = currentProperty.amenities.map(amenity => `
-        <div class="amenity-item">
-            <span style="font-size: 1.5rem;">${amenity.icon}</span>
-            <span>${amenity.text}</span>
-        </div>
-    `).join('');
+    try {
+        console.log(`🎨 Loading ${currentProperty.amenities.length} amenities...`);
+        // Load amenities
+        const amenitiesGrid = document.getElementById('amenitiesGrid');
+        if (!amenitiesGrid) {
+            console.error('❌ amenitiesGrid element not found!');
+        } else {
+            amenitiesGrid.innerHTML = currentProperty.amenities.map(amenity => `
+                <div class="amenity-item">
+                    <span style="font-size: 1.5rem;">${amenity.icon}</span>
+                    <span>${amenity.text}</span>
+                </div>
+            `).join('');
+            console.log('✅ Amenities loaded');
+        }
+    } catch (error) {
+        console.error('❌ Error loading amenities:', error);
+    }
     
-    // Load nearby places
-    const nearbyGrid = document.getElementById('nearbyGrid');
-    nearbyGrid.innerHTML = currentProperty.nearby.map(place => `
-        <div class="nearby-item">
-            <div class="nearby-icon">${place.icon}</div>
-            <div class="nearby-info">
-                <strong>${place.name}</strong>
-                <span>${place.distance}</span>
-            </div>
-        </div>
-    `).join('');
+    try {
+        console.log(`📍 Loading ${currentProperty.nearby.length} nearby places...`);
+        // Load nearby places
+        const nearbyGrid = document.getElementById('nearbyGrid');
+        if (!nearbyGrid) {
+            console.error('❌ nearbyGrid element not found!');
+        } else {
+            nearbyGrid.innerHTML = currentProperty.nearby.map(place => `
+                <div class="nearby-item">
+                    <div class="nearby-icon">${place.icon}</div>
+                    <div class="nearby-info">
+                        <strong>${place.name}</strong>
+                        <span>${place.distance}</span>
+                    </div>
+                </div>
+            `).join('');
+            console.log('✅ Nearby places loaded');
+        }
+    } catch (error) {
+        console.error('❌ Error loading nearby places:', error);
+    }
     
     // Update page title
     document.title = `${currentProperty.title} - CoastalNomad`;
+    console.log('✅ loadPropertyDetails() completed successfully');
 }
 
 // Setup Gallery
