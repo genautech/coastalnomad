@@ -2,6 +2,25 @@
 
 A modern, professional real estate platform designed specifically for digital nomads seeking coastal properties in Brazil (Curitiba, Paraná Coast, and Santa Catarina Coast).
 
+---
+
+## 🚨 IMPORTANTE: Se as propriedades não aparecem online
+
+**LEIA**: [`LEIA-ISTO-PRIMEIRO.md`](LEIA-ISTO-PRIMEIRO.md) ← **COMECE AQUI!**
+
+**Verificação rápida**: https://genautech.github.io/coastalnomad/verify.html
+
+**Deploy rápido**:
+```bash
+cd coastalnomad
+git add .
+git commit -m "Fix properties"
+git push origin main
+# Aguarde 10 minutos e limpe o cache (Ctrl+Shift+R)
+```
+
+---
+
 ## 🎯 QUICK START DEMO
 
 **Explore the complete experience:**

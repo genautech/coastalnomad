@@ -5,12 +5,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navLinks = document.getElementById('navLinks');
     
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', () => {
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
             const icon = mobileMenuToggle.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close menu when clicking on a link
+        const navLinkItems = navLinks.querySelectorAll('.nav-link');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
         });
     }
 
@@ -75,6 +97,55 @@ document.addEventListener('DOMContentLoaded', () => {
     if (featuredPropertiesGrid) {
         loadFeaturedProperties();
     }
+    
+    // Chat Demo Modal
+    const openChatDemoBtn = document.getElementById('openChatDemoBtn');
+    const closeChatDemoBtn = document.getElementById('closeChatDemoBtn');
+    const chatDemoModal = document.getElementById('chatDemoModal');
+    const restartChatDemoBtn = document.getElementById('restartChatDemoBtn');
+    
+    if (openChatDemoBtn) {
+        openChatDemoBtn.addEventListener('click', () => {
+            chatDemoModal.classList.add('active');
+            setTimeout(() => {
+                startModalChatDemo();
+            }, 500);
+        });
+    }
+    
+    if (closeChatDemoBtn) {
+        closeChatDemoBtn.addEventListener('click', () => {
+            chatDemoModal.classList.remove('active');
+            resetModalChatDemo();
+        });
+    }
+    
+    if (restartChatDemoBtn) {
+        restartChatDemoBtn.addEventListener('click', () => {
+            resetModalChatDemo();
+            setTimeout(() => {
+                startModalChatDemo();
+            }, 500);
+        });
+    }
+    
+    // Close modal when clicking outside
+    if (chatDemoModal) {
+        chatDemoModal.addEventListener('click', (e) => {
+            if (e.target === chatDemoModal) {
+                chatDemoModal.classList.remove('active');
+                resetModalChatDemo();
+            }
+        });
+    }
+    
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && chatDemoModal && chatDemoModal.classList.contains('active')) {
+            chatDemoModal.classList.remove('active');
+            resetModalChatDemo();
+        }
+    });
 
     // Smooth Scroll for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -209,3 +280,124 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
+// Chat Demo Animation (Modal)
+let modalChatDemoStep = 0;
+let modalChatDemoTimeout = null;
+
+const chatDemoMessages = [
+    {
+        sender: 'client',
+        text: "Hi Rodrigo! I'm a software engineer looking to buy a property in Florianópolis. Can you help me?"
+    },
+    {
+        sender: 'rodrigo',
+        text: "Absolutely! Florianópolis is perfect for tech professionals - great internet, coworking spaces, and an amazing digital nomad community. What's your budget range?"
+    },
+    {
+        sender: 'client',
+        text: "Around $150,000 to $250,000. I'd like something near the beach with good internet for remote work."
+    },
+    {
+        sender: 'rodrigo',
+        text: "Perfect! I have 3 properties that match your criteria. Let me send you details and we can schedule video tours. When would be good for you?"
+    },
+    {
+        sender: 'client',
+        text: "This week would be great! Can we do a video tour on Wednesday?"
+    },
+    {
+        sender: 'rodrigo',
+        text: "Wednesday at 3 PM works perfectly. I'll send you calendar invite and property details via email. Also, I'm organizing a property visit trip next month coinciding with TechCrunch Disrupt - would you be interested?"
+    },
+    {
+        sender: 'client',
+        text: "That sounds amazing! Count me in. This is exactly the experience I was looking for."
+    },
+    {
+        sender: 'rodrigo',
+        text: "Excellent! I'll add you to the group. You'll meet other buyers and get to experience the lifestyle firsthand. I'll follow up with all details on WhatsApp. Looking forward to helping you find your coastal paradise! 🏖️"
+    }
+];
+
+function startModalChatDemo() {
+    const chatWindow = document.getElementById('modalChatWindow');
+    if (!chatWindow) return;
+    
+    modalChatDemoStep = 0;
+    addModalChatDemoMessage(0);
+}
+
+function addModalChatDemoMessage(step) {
+    const chatWindow = document.getElementById('modalChatWindow');
+    const chatScreen = document.getElementById('modalChatScreen');
+    
+    if (!chatWindow || !chatScreen) return;
+    
+    if (step >= chatDemoMessages.length) {
+        return; // Stop at the end
+    }
+    
+    const message = chatDemoMessages[step];
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-demo-message ${message.sender}`;
+    
+    const avatar = document.createElement('div');
+    avatar.className = 'chat-demo-avatar';
+    avatar.textContent = message.sender === 'rodrigo' ? '👨‍💼' : '👤';
+    
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-demo-bubble';
+    
+    const name = document.createElement('div');
+    name.className = 'chat-demo-name';
+    name.textContent = message.sender === 'rodrigo' ? 'Rodrigo' : 'You';
+    
+    const text = document.createElement('div');
+    text.className = 'chat-demo-text';
+    text.textContent = message.text;
+    
+    bubble.appendChild(name);
+    bubble.appendChild(text);
+    messageDiv.appendChild(avatar);
+    messageDiv.appendChild(bubble);
+    chatWindow.appendChild(messageDiv);
+    
+    // Scroll to bottom smoothly
+    setTimeout(() => {
+        chatScreen.scrollTop = chatScreen.scrollHeight;
+    }, 100);
+    
+    modalChatDemoStep = step;
+    
+    // Continue to next message
+    if (step < chatDemoMessages.length - 1) {
+        modalChatDemoTimeout = setTimeout(() => {
+            addModalChatDemoMessage(step + 1);
+        }, 2500);
+    }
+}
+
+function resetModalChatDemo() {
+    const chatWindow = document.getElementById('modalChatWindow');
+    if (!chatWindow) return;
+    
+    // Clear any pending timeouts
+    if (modalChatDemoTimeout) {
+        clearTimeout(modalChatDemoTimeout);
+        modalChatDemoTimeout = null;
+    }
+    
+    chatWindow.innerHTML = `
+        <div class="chat-demo-message rodrigo">
+            <div class="chat-demo-avatar">👨‍💼</div>
+            <div class="chat-demo-bubble">
+                <div class="chat-demo-name">Rodrigo</div>
+                <div class="chat-demo-text">Hi! I'm Rodrigo. I'll help you find your perfect coastal property in Brazil! 🏖️</div>
+            </div>
+        </div>
+    `;
+    
+    modalChatDemoStep = 0;
+}

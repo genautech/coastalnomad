@@ -63,6 +63,13 @@
                     Work remotely. Live beautifully. Invest smartly.
                 </p>
                 
+                <!-- CTA Buttons -->
+                <div class="hero-cta animate-slide-up">
+                    <button class="btn btn-large btn-demo" id="openChatDemoBtn">
+                        <i class="fas fa-play-circle"></i> See How Rodrigo Helps You
+                    </button>
+                </div>
+                
                 <!-- Search Bar -->
                 <div class="search-container animate-slide-up">
                     <form class="search-form" id="heroSearchForm">
@@ -105,6 +112,41 @@
             </div>
         </div>
     </section>
+    
+    <!-- Chat Demo Modal -->
+    <div class="modal-overlay" id="chatDemoModal">
+        <div class="modal-chat-demo">
+            <button class="modal-close" id="closeChatDemoBtn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="chat-demo-container">
+                <div class="chat-demo-header">
+                    <span class="chat-demo-badge">🎬 Live Demo</span>
+                    <h3>See How Rodrigo Helps You</h3>
+                    <p>Watch a typical conversation with a client</p>
+                </div>
+                <div class="chat-demo-screen" id="modalChatScreen">
+                    <div class="chat-demo-window" id="modalChatWindow">
+                        <div class="chat-demo-message rodrigo">
+                            <div class="chat-demo-avatar">👨‍💼</div>
+                            <div class="chat-demo-bubble">
+                                <div class="chat-demo-name">Rodrigo</div>
+                                <div class="chat-demo-text">Hi! I'm Rodrigo. I'll help you find your perfect coastal property in Brazil! 🏖️</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-demo-footer">
+                    <button class="btn btn-primary" id="restartChatDemoBtn">
+                        <i class="fas fa-redo"></i> Restart Demo
+                    </button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('chatDemoModal').classList.remove('active')">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Lifestyle Tags -->
     <section class="lifestyle-tags">
@@ -375,5 +417,5 @@
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
-<!-- deploy-check 2025-10-17 18:46:57 --></body>
-</html><--cwd deploy-check 2025-10-17 18:43:54 -->
+</body>
+</html>
