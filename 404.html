@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find your perfect coastal paradise in Brazil. Premium properties for digital nomads in Curitiba, Paraná and Santa Catarina coast.">
+    <title>CoastalNomad - Your Brazilian Paradise Awaits</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span>CoastalNomad</span>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="properties.html" class="nav-link">Properties</a>
+                    <a href="events-travel.html" class="nav-link">Events & Travel</a>
+                    <a href="buying-process.html" class="nav-link">How to Buy</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20interested%20in%20coastal%20properties" target="_blank" class="btn btn-primary btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Contact Us
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title animate-fade-in">
+                    Your Coastal Paradise<br>
+                    <span class="gradient-text">Awaits in Brazil</span>
+                </h1>
+                <p class="hero-tagline animate-fade-in-delay">
+                    by Rodrigo Torrezan - Digital Nomad Real Estate Expert
+                </p>
+                <p class="hero-subtitle animate-fade-in-delay">
+                    Premium properties for digital nomads in Curitiba, Paraná & Santa Catarina coast.<br>
+                    Work remotely. Live beautifully. Invest smartly.
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="search-container animate-slide-up">
+                    <form class="search-form" id="heroSearchForm">
+                        <div class="search-field">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <select name="location" id="heroLocation">
+                                <option value="">All Locations</option>
+                                <option value="curitiba">Curitiba</option>
+                                <option value="florianopolis">Florianópolis</option>
+                                <option value="balneario">Balneário Camboriú</option>
+                                <option value="ilha-mel">Ilha do Mel</option>
+                                <option value="guaratuba">Guaratuba</option>
+                            </select>
+                        </div>
+                        <div class="search-field">
+                            <i class="fas fa-home"></i>
+                            <select name="type" id="heroType">
+                                <option value="">Property Type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="condo">Condo</option>
+                                <option value="land">Land</option>
+                            </select>
+                        </div>
+                        <div class="search-field">
+                            <i class="fas fa-dollar-sign"></i>
+                            <select name="price" id="heroPrice">
+                                <option value="">Price Range</option>
+                                <option value="0-100000">Up to $100k</option>
+                                <option value="100000-250000">$100k - $250k</option>
+                                <option value="250000-500000">$250k - $500k</option>
+                                <option value="500000+">$500k+</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-search">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Tags -->
+    <section class="lifestyle-tags">
+        <div class="container">
+            <div class="tags-grid">
+                <button class="tag-btn" data-lifestyle="beach">
+                    <i class="fas fa-water"></i>
+                    <span>Beach Life</span>
+                </button>
+                <button class="tag-btn" data-lifestyle="mountain">
+                    <i class="fas fa-mountain"></i>
+                    <span>Mountain Vibes</span>
+                </button>
+                <button class="tag-btn" data-lifestyle="urban">
+                    <i class="fas fa-city"></i>
+                    <span>Urban Hub</span>
+                </button>
+                <button class="tag-btn" data-lifestyle="wellness">
+                    <i class="fas fa-spa"></i>
+                    <span>Wellness</span>
+                </button>
+                <button class="tag-btn" data-lifestyle="creative">
+                    <i class="fas fa-palette"></i>
+                    <span>Creative Community</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="featured-properties">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Properties</h2>
+                <p class="section-subtitle">Handpicked coastal paradises perfect for digital nomads</p>
+            </div>
+            
+            <div class="properties-grid" id="featuredPropertiesGrid">
+                <!-- Property cards will be loaded by JavaScript -->
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="properties.html" class="btn btn-secondary">
+                    View All Properties <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="showcase.html" class="btn btn-primary">
+                    <i class="fas fa-images"></i> Full Portfolio Showcase
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality of Life -->
+    <section class="quality-life">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Brazil's Coast?</h2>
+                <p class="section-subtitle">Exceptional quality of life for digital nomads</p>
+            </div>
+            
+            <div class="quality-grid">
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safe Communities</h3>
+                    <p>Low crime rates in coastal neighborhoods with active expat communities</p>
+                    <div class="quality-score">8.2/10</div>
+                </div>
+                
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Affordable Living</h3>
+                    <p>30-50% lower cost of living compared to North America or Europe</p>
+                    <div class="quality-score">9.1/10</div>
+                </div>
+                
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Fast Internet</h3>
+                    <p>Fiber optic connections up to 1Gbps available in most areas</p>
+                    <div class="quality-score">9.5/10</div>
+                </div>
+                
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Vibrant Community</h3>
+                    <p>Growing digital nomad and expat communities with networking events</p>
+                    <div class="quality-score">8.7/10</div>
+                </div>
+                
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Perfect Climate</h3>
+                    <p>Mild temperatures year-round, endless beaches, and outdoor activities</p>
+                    <div class="quality-score">9.3/10</div>
+                </div>
+                
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Easy Relocation</h3>
+                    <p>Friendly visa policies and welcoming culture for international buyers</p>
+                    <div class="quality-score">8.5/10</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nomad Success Stories</h2>
+                <p class="section-subtitle">Real people living their dream coastal life</p>
+            </div>
+            
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Mark Johnson">
+                    </div>
+                    <div class="story-content">
+                        <h3>Mark Johnson</h3>
+                        <p class="story-location"><i class="fas fa-map-marker-alt"></i> From USA to Florianópolis</p>
+                        <p class="story-text">"Best decision ever! Working from my beachfront apartment with perfect internet. My cost of living dropped 60% and my quality of life doubled."</p>
+                        <div class="story-tags">
+                            <span class="tag">Software Developer</span>
+                            <span class="tag">$180k Property</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Sarah Chen">
+                    </div>
+                    <div class="story-content">
+                        <h3>Sarah Chen</h3>
+                        <p class="story-location"><i class="fas fa-map-marker-alt"></i> From Singapore to Balneário Camboriú</p>
+                        <p class="story-text">"The perfect blend of city life and beach. Amazing coworking spaces, vibrant expat community, and incredible sunset views every evening."</p>
+                        <div class="story-tags">
+                            <span class="tag">Designer</span>
+                            <span class="tag">$265k Property</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Lucas Martinez">
+                    </div>
+                    <div class="story-content">
+                        <h3>Lucas Martinez</h3>
+                        <p class="story-location"><i class="fas fa-map-marker-alt"></i> From Argentina to Curitiba</p>
+                        <p class="story-text">"Curitiba offers the perfect infrastructure for remote work. Green city, great healthcare, and close to stunning beaches. Plus, investment potential is huge!"</p>
+                        <div class="story-tags">
+                            <span class="tag">Entrepreneur</span>
+                            <span class="tag">$145k Property</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your Coastal Paradise?</h2>
+                <p>Chat with us on WhatsApp and let's find your perfect property today</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20interested%20in%20coastal%20properties" target="_blank" class="btn btn-large btn-whatsapp-large">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                    <a href="properties.html" class="btn btn-large btn-secondary">
+                        Browse Properties
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Stay Updated on New Properties</h3>
+                <p>Get exclusive listings and nomad life tips delivered to your inbox</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <span>CoastalNomad</span>
+                    </div>
+                    <p>Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="properties.html">All Properties</a></li>
+                        <li><a href="events-travel.html">Events & Travel</a></li>
+                        <li><a href="buying-process.html">How to Buy</a></li>
+                        <li><a href="showcase.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="blog.html?category=guides">Destination Guides</a></li>
+                        <li><a href="blog.html?category=hacks">Nomad Life Hacks</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> +55 (41) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> rodrigo@coastalnomad.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Curitiba, Paraná, Brazil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CoastalNomad. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="admin.html" style="opacity: 0.5;">Admin</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
