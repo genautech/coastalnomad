@@ -572,19 +572,33 @@
         <div class="container">
             <div class="nav-content">
                 <a href="index.html" class="logo">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <span>CoastalNomad</span>
+                    <div class="logo-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-brand">CoastalNomad</span>
+                        <span class="logo-tagline">by <strong>Rodrigo Torrezan</strong></span>
+                    </div>
                 </a>
                 <div class="nav-links" id="navLinks">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="properties.html" class="nav-link">Properties</a>
-                    <a href="events-travel.html" class="nav-link">Events & Travel</a>
-                    <a href="buying-process.html" class="nav-link active">How to Buy</a>
-                    <a href="blog.html" class="nav-link">Blog</a>
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+                    <a href="properties.html" class="nav-link" data-i18n="nav_properties">Properties</a>
+                    <a href="events-travel.html" class="nav-link" data-i18n="nav_events">Events & Travel</a>
+                    <a href="buying-process.html" class="nav-link active" data-i18n="nav_buying_process">How to Buy</a>
+                    <a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
                     <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20ready%20to%20start%20the%20buying%20process" target="_blank" class="btn btn-primary btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> Contact Us
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="btn_contact">Contact Us</span>
                     </a>
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <button class="language-flag" data-lang="en" title="English">
+                            🇺🇸
+                        </button>
+                        <button class="language-flag" data-lang="pt-BR" title="Português">
+                            🇧🇷
+                        </button>
+                    </div>
                 </div>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
@@ -596,15 +610,15 @@
     <!-- Hero Section -->
     <section class="process-hero">
         <div class="process-hero-content">
-            <h1>🏡 How to Buy Property in Brazil</h1>
-            <p>Your complete step-by-step guide to purchasing coastal real estate as a digital nomad</p>
+            <h1 data-i18n="buying_hero_title">🏡 How to Buy Property in Brazil</h1>
+            <p data-i18n="buying_hero_subtitle">Your complete step-by-step guide to purchasing coastal real estate as a digital nomad</p>
             
             <div class="trust-badges">
                 <div class="trust-badge">
                     <i class="fas fa-shield-alt"></i>
                     <div class="trust-badge-content">
                         <h3>100%</h3>
-                        <p>Legal & Secure</p>
+                        <p data-i18n="buying_badge_legal">Legal & Secure</p>
                     </div>
                 </div>
                 
@@ -612,7 +626,7 @@
                     <i class="fas fa-user-tie"></i>
                     <div class="trust-badge-content">
                         <h3>15+</h3>
-                        <p>Years Experience</p>
+                        <p data-i18n="buying_badge_experience">Years Experience</p>
                     </div>
                 </div>
                 
@@ -620,7 +634,7 @@
                     <i class="fas fa-star"></i>
                     <div class="trust-badge-content">
                         <h3>4.9/5</h3>
-                        <p>Client Rating</p>
+                        <p data-i18n="buying_badge_rating">Client Rating</p>
                     </div>
                 </div>
             </div>
@@ -631,8 +645,8 @@
     <section class="timeline-section">
         <div class="container">
             <div class="section-header" style="margin-bottom: 80px;">
-                <h2>📋 The Complete Buying Process</h2>
-                <p>From first contact to keys in hand - every step explained</p>
+                <h2>📋 <span data-i18n="buying_process_title">The Complete Buying Process</span></h2>
+                <p data-i18n="buying_process_subtitle">From first contact to keys in hand - every step explained</p>
             </div>
             
             <div class="timeline">
@@ -641,30 +655,30 @@
                     <div class="timeline-number">1</div>
                     <div class="timeline-content">
                         <span class="timeline-icon">💬</span>
-                        <h3>Initial Consultation</h3>
-                        <p>Let's understand your needs, budget, and lifestyle preferences. We'll discuss your goals and create a personalized property search strategy.</p>
+                        <h3 data-i18n="buying_step1_title">Initial Consultation</h3>
+                        <p data-i18n="buying_step1_desc">Let's understand your needs, budget, and lifestyle preferences. We'll discuss your goals and create a personalized property search strategy.</p>
                         
                         <div class="timeline-details">
                             <div class="detail-row">
-                                <span class="detail-label">⏱️ Duration:</span>
-                                <span class="detail-value">30-60 minutes</span>
+                                <span class="detail-label" data-i18n="buying_step1_duration">⏱️ Duration:</span>
+                                <span class="detail-value" data-i18n="buying_step1_duration_val">30-60 minutes</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">📍 Format:</span>
-                                <span class="detail-value">Video call or in-person</span>
+                                <span class="detail-label" data-i18n="buying_step1_format">📍 Format:</span>
+                                <span class="detail-value" data-i18n="buying_step1_format_val">Video call or in-person</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">💰 Cost:</span>
-                                <span class="detail-value">FREE</span>
+                                <span class="detail-label" data-i18n="buying_step1_cost">💰 Cost:</span>
+                                <span class="detail-value" data-i18n="buying_step1_cost_val">FREE</span>
                             </div>
                         </div>
                         
                         <div class="timeline-actions">
                             <a href="https://wa.me/5541999999999?text=Hi%20Rodrigo!%20I'd%20like%20to%20schedule%20a%20consultation" target="_blank" class="action-btn action-btn-primary">
-                                <i class="fab fa-whatsapp"></i> Schedule Now
+                                <i class="fab fa-whatsapp"></i> <span data-i18n="buying_schedule_now">Schedule Now</span>
                             </a>
                             <a href="about.html" class="action-btn action-btn-secondary">
-                                Learn More
+                                <span data-i18n="buying_learn_more">Learn More</span>
                             </a>
                         </div>
                     </div>
@@ -675,27 +689,27 @@
                     <div class="timeline-number">2</div>
                     <div class="timeline-content">
                         <span class="timeline-icon">🔍</span>
-                        <h3>Property Search & Selection</h3>
-                        <p>I'll curate a personalized selection of properties that match your criteria. You'll receive detailed info, photos, videos, and quality of life reports.</p>
+                        <h3 data-i18n="buying_step2_title">Property Search & Selection</h3>
+                        <p data-i18n="buying_step2_desc">I'll curate a personalized selection of properties that match your criteria. You'll receive detailed info, photos, videos, and quality of life reports.</p>
                         
                         <div class="timeline-details">
                             <div class="detail-row">
-                                <span class="detail-label">⏱️ Duration:</span>
-                                <span class="detail-value">1-2 weeks</span>
+                                <span class="detail-label" data-i18n="buying_step1_duration">⏱️ Duration:</span>
+                                <span class="detail-value" data-i18n="buying_step2_duration_val">1-2 weeks</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">📊 Properties:</span>
-                                <span class="detail-value">5-10 curated options</span>
+                                <span class="detail-label" data-i18n="buying_step2_properties">📊 Properties:</span>
+                                <span class="detail-value" data-i18n="buying_step2_properties_val">5-10 curated options</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">📱 Updates:</span>
-                                <span class="detail-value">Daily via WhatsApp</span>
+                                <span class="detail-label" data-i18n="buying_step2_updates">📱 Updates:</span>
+                                <span class="detail-value" data-i18n="buying_step2_updates_val">Daily via WhatsApp</span>
                             </div>
                         </div>
                         
                         <div class="timeline-actions">
                             <a href="properties.html" class="action-btn action-btn-primary">
-                                <i class="fas fa-search"></i> Browse Properties
+                                <i class="fas fa-search"></i> <span data-i18n="buying_browse_properties">Browse Properties</span>
                             </a>
                         </div>
                     </div>
@@ -706,30 +720,30 @@
                     <div class="timeline-number">3</div>
                     <div class="timeline-content">
                         <span class="timeline-icon">🏠</span>
-                        <h3>Virtual or In-Person Tours</h3>
-                        <p>Choose between high-quality video tours or visit properties in person. I'll personally guide you through each property, highlighting features and answering all questions.</p>
+                        <h3 data-i18n="buying_step3_title">Virtual or In-Person Tours</h3>
+                        <p data-i18n="buying_step3_desc">Choose between high-quality video tours or visit properties in person. I'll personally guide you through each property, highlighting features and answering all questions.</p>
                         
                         <div class="timeline-details">
                             <div class="detail-row">
-                                <span class="detail-label">🎥 Video Tours:</span>
-                                <span class="detail-value">Live via Zoom/WhatsApp</span>
+                                <span class="detail-label" data-i18n="buying_step3_video">🎥 Video Tours:</span>
+                                <span class="detail-value" data-i18n="buying_step3_video_val">Live via Zoom/WhatsApp</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">✈️ In-Person:</span>
-                                <span class="detail-value">2-3 day itinerary</span>
+                                <span class="detail-label" data-i18n="buying_step3_inperson">✈️ In-Person:</span>
+                                <span class="detail-value" data-i18n="buying_step3_inperson_val">2-3 day itinerary</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">🎯 Properties:</span>
-                                <span class="detail-value">3-5 per day</span>
+                                <span class="detail-label" data-i18n="buying_step3_properties">🎯 Properties:</span>
+                                <span class="detail-value" data-i18n="buying_step3_properties_val">3-5 per day</span>
                             </div>
                         </div>
                         
                         <div class="timeline-actions">
                             <a href="events-travel.html" class="action-btn action-btn-primary">
-                                <i class="fas fa-calendar"></i> Plan Visit
+                                <i class="fas fa-calendar"></i> <span data-i18n="buying_plan_visit">Plan Visit</span>
                             </a>
                             <a href="https://wa.me/5541999999999?text=Hi!%20I'd%20like%20to%20schedule%20a%20video%20tour" target="_blank" class="action-btn action-btn-secondary">
-                                <i class="fas fa-video"></i> Video Tour
+                                <i class="fas fa-video"></i> <span data-i18n="buying_video_tour">Video Tour</span>
                             </a>
                         </div>
                     </div>
@@ -740,21 +754,21 @@
                     <div class="timeline-number">4</div>
                     <div class="timeline-content">
                         <span class="timeline-icon">📄</span>
-                        <h3>Due Diligence & Documentation</h3>
-                        <p>I coordinate with lawyers to verify property titles, check for liens, review contracts, and ensure everything is legally sound. Your investment is protected.</p>
+                        <h3 data-i18n="buying_step4_title">Due Diligence & Documentation</h3>
+                        <p data-i18n="buying_step4_desc">I coordinate with lawyers to verify property titles, check for liens, review contracts, and ensure everything is legally sound. Your investment is protected.</p>
                         
                         <div class="timeline-details">
                             <div class="detail-row">
-                                <span class="detail-label">⏱️ Duration:</span>
-                                <span class="detail-value">1-2 weeks</span>
+                                <span class="detail-label" data-i18n="buying_step4_duration">⏱️ Duration:</span>
+                                <span class="detail-value" data-i18n="buying_step4_duration_val">1-2 weeks</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">👨‍⚖️ Lawyer:</span>
-                                <span class="detail-value">Included (bilingual)</span>
+                                <span class="detail-label" data-i18n="buying_step4_lawyer">👨‍⚖️ Lawyer:</span>
+                                <span class="detail-value" data-i18n="buying_step4_lawyer_val">Included (bilingual)</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">📋 Reports:</span>
-                                <span class="detail-value">Full legal analysis</span>
+                                <span class="detail-label" data-i18n="buying_step4_reports">📋 Reports:</span>
+                                <span class="detail-value" data-i18n="buying_step4_reports_val">Full legal analysis</span>
                             </div>
                         </div>
                     </div>
@@ -765,21 +779,21 @@
                     <div class="timeline-number">5</div>
                     <div class="timeline-content">
                         <span class="timeline-icon">💰</span>
-                        <h3>Offer & Negotiation</h3>
-                        <p>I'll help you craft a competitive offer and negotiate the best terms. My local market knowledge ensures you get fair value and favorable conditions.</p>
+                        <h3 data-i18n="buying_step5_title">Offer & Negotiation</h3>
+                        <p data-i18n="buying_step5_desc">I'll help you craft a competitive offer and negotiate the best terms. My local market knowledge ensures you get fair value and favorable conditions.</p>
                         
                         <div class="timeline-details">
                             <div class="detail-row">
-                                <span class="detail-label">⏱️ Duration:</span>
-                                <span class="detail-value">3-7 days</span>
+                                <span class="detail-label" data-i18n="buying_step5_duration">⏱️ Duration:</span>
+                                <span class="detail-value" data-i18n="buying_step5_duration_val">3-7 days</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">💬 Communication:</span>
-                                <span class="detail-value">Real-time updates</span>
+                                <span class="detail-label" data-i18n="buying_step5_communication">💬 Communication:</span>
+                                <span class="detail-value" data-i18n="buying_step5_communication_val">Real-time updates</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">📊 Strategy:</span>
-                                <span class="detail-value">Data-driven approach</span>
+                                <span class="detail-label" data-i18n="buying_step5_strategy">📊 Strategy:</span>
+                                <span class="detail-value" data-i18n="buying_step5_strategy_val">Data-driven approach</span>
                             </div>
                         </div>
                     </div>
@@ -790,21 +804,21 @@
                     <div class="timeline-number">6</div>
                     <div class="timeline-content">
                         <span class="timeline-icon">✍️</span>
-                        <h3>Contract Signing</h3>
-                        <p>Once terms are agreed, we proceed to formal contract signing. All documents are reviewed by your lawyer and explained in detail before you sign.</p>
+                        <h3 data-i18n="buying_step6_title">Contract Signing</h3>
+                        <p data-i18n="buying_step6_desc">Once terms are agreed, we proceed to formal contract signing. All documents are reviewed by your lawyer and explained in detail before you sign.</p>
                         
                         <div class="timeline-details">
                             <div class="detail-row">
-                                <span class="detail-label">⏱️ Duration:</span>
-                                <span class="detail-value">1-3 days</span>
+                                <span class="detail-label" data-i18n="buying_step6_duration">⏱️ Duration:</span>
+                                <span class="detail-value" data-i18n="buying_step6_duration_val">1-3 days</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">📍 Location:</span>
-                                <span class="detail-value">Notary office or remote</span>
+                                <span class="detail-label" data-i18n="buying_step6_location">📍 Location:</span>
+                                <span class="detail-value" data-i18n="buying_step6_location_val">Notary office or remote</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">📄 Language:</span>
-                                <span class="detail-value">Portuguese + translation</span>
+                                <span class="detail-label" data-i18n="buying_step6_language">📄 Language:</span>
+                                <span class="detail-value" data-i18n="buying_step6_language_val">Portuguese + translation</span>
                             </div>
                         </div>
                     </div>
@@ -815,21 +829,21 @@
                     <div class="timeline-number">7</div>
                     <div class="timeline-content">
                         <span class="timeline-icon">💳</span>
-                        <h3>Payment & Transfer</h3>
-                        <p>I'll guide you through international wire transfers, currency exchange, and payment schedules. Multiple payment options available to suit your needs.</p>
+                        <h3 data-i18n="buying_step7_title">Payment & Transfer</h3>
+                        <p data-i18n="buying_step7_desc">I'll guide you through international wire transfers, currency exchange, and payment schedules. Multiple payment options available to suit your needs.</p>
                         
                         <div class="timeline-details">
                             <div class="detail-row">
-                                <span class="detail-label">💱 Currency:</span>
-                                <span class="detail-value">USD, EUR, or BRL</span>
+                                <span class="detail-label" data-i18n="buying_step7_currency">💱 Currency:</span>
+                                <span class="detail-value" data-i18n="buying_step7_currency_val">USD, EUR, or BRL</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">🏦 Methods:</span>
-                                <span class="detail-value">Wire, Wise, crypto</span>
+                                <span class="detail-label" data-i18n="buying_step7_methods">🏦 Methods:</span>
+                                <span class="detail-value" data-i18n="buying_step7_methods_val">Wire, Wise, crypto</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">📊 Fees:</span>
-                                <span class="detail-value">Transparent breakdown</span>
+                                <span class="detail-label" data-i18n="buying_step7_fees">📊 Fees:</span>
+                                <span class="detail-value" data-i18n="buying_step7_fees_val">Transparent breakdown</span>
                             </div>
                         </div>
                     </div>
@@ -840,27 +854,27 @@
                     <div class="timeline-number">8</div>
                     <div class="timeline-content">
                         <span class="timeline-icon">🔑</span>
-                        <h3>Property Handover</h3>
-                        <p>Congratulations! Final inspection, keys handover, and welcome to your new coastal paradise. I'll help with utilities, services setup, and local introductions.</p>
+                        <h3 data-i18n="buying_step8_title">Property Handover</h3>
+                        <p data-i18n="buying_step8_desc">Congratulations! Final inspection, keys handover, and welcome to your new coastal paradise. I'll help with utilities, services setup, and local introductions.</p>
                         
                         <div class="timeline-details">
                             <div class="detail-row">
-                                <span class="detail-label">🎉 Celebration:</span>
-                                <span class="detail-value">Welcome package</span>
+                                <span class="detail-label" data-i18n="buying_step8_celebration">🎉 Celebration:</span>
+                                <span class="detail-value" data-i18n="buying_step8_celebration_val">Welcome package</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">📋 Checklist:</span>
-                                <span class="detail-value">Move-in guide</span>
+                                <span class="detail-label" data-i18n="buying_step8_checklist">📋 Checklist:</span>
+                                <span class="detail-value" data-i18n="buying_step8_checklist_val">Move-in guide</span>
                             </div>
                             <div class="detail-row">
-                                <span class="detail-label">🤝 Support:</span>
-                                <span class="detail-value">Ongoing assistance</span>
+                                <span class="detail-label" data-i18n="buying_step8_support">🤝 Support:</span>
+                                <span class="detail-value" data-i18n="buying_step8_support_val">Ongoing assistance</span>
                             </div>
                         </div>
                         
                         <div class="timeline-actions">
                             <a href="https://wa.me/5541999999999?text=I'm%20ready%20to%20start%20my%20property%20journey!" target="_blank" class="action-btn action-btn-primary">
-                                <i class="fas fa-rocket"></i> Start Your Journey
+                                <i class="fas fa-rocket"></i> <span data-i18n="buying_start_journey">Start Your Journey</span>
                             </a>
                         </div>
                     </div>
@@ -873,8 +887,8 @@
     <section class="simulation-section">
         <div class="container">
             <div class="section-header" style="margin-bottom: 60px;">
-                <h2>🎭 See How It Works</h2>
-                <p>Experience a typical interaction with Rodrigo</p>
+                <h2>🎭 <span data-i18n="buying_how_works_title">See How It Works</span></h2>
+                <p data-i18n="buying_how_works_subtitle">Experience a typical interaction with Rodrigo</p>
             </div>
             
             <div class="simulation-container">
@@ -892,10 +906,10 @@
                 
                 <div class="sim-controls">
                     <button class="sim-btn sim-btn-primary" onclick="simulateStep(1)">
-                        <i class="fas fa-play"></i> Start Simulation
+                        <i class="fas fa-play"></i> <span data-i18n="buying_start_simulation">Start Simulation</span>
                     </button>
                     <button class="sim-btn sim-btn-secondary" onclick="resetSimulation()">
-                        <i class="fas fa-redo"></i> Reset
+                        <i class="fas fa-redo"></i> <span data-i18n="buying_reset">Reset</span>
                     </button>
                 </div>
             </div>
@@ -906,8 +920,8 @@
     <section class="engagement-section">
         <div class="container">
             <div class="section-header" style="margin-bottom: 60px;">
-                <h2>🚀 How Rodrigo Keeps You Engaged</h2>
-                <p>Smart strategies to ensure you stay informed and excited throughout the process</p>
+                <h2>🚀 <span data-i18n="buying_engagement_title">How Rodrigo Keeps You Engaged</span></h2>
+                <p data-i18n="buying_engagement_subtitle">Smart strategies to ensure you stay informed and excited throughout the process</p>
             </div>
             
             <div class="engagement-grid">
@@ -926,10 +940,10 @@
                     <div class="engagement-icon">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3>Weekly Video Check-ins</h3>
-                    <p>Regular video calls to review progress, answer questions, and adjust your search strategy as needed.</p>
+                    <h3 data-i18n="buying_video_checkins">Weekly Video Check-ins</h3>
+                    <p data-i18n="buying_video_checkins_desc">Regular video calls to review progress, answer questions, and adjust your search strategy as needed.</p>
                     <a href="about.html" class="engagement-btn">
-                        Schedule Call
+                        <span data-i18n="buying_schedule_call">Schedule Call</span>
                     </a>
                 </div>
                 
@@ -937,10 +951,10 @@
                     <div class="engagement-icon">
                         <i class="fas fa-images"></i>
                     </div>
-                    <h3>Virtual Property Previews</h3>
-                    <p>Receive exclusive videos and photos of properties before they hit the market. Early access for serious buyers.</p>
+                    <h3 data-i18n="buying_property_previews">Virtual Property Previews</h3>
+                    <p data-i18n="buying_property_previews_desc">Receive exclusive videos and photos of properties before they hit the market. Early access for serious buyers.</p>
                     <a href="properties.html" class="engagement-btn">
-                        View Properties
+                        <span data-i18n="buying_view_properties">View Properties</span>
                     </a>
                 </div>
                 
@@ -948,10 +962,10 @@
                     <div class="engagement-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Community Introductions</h3>
-                    <p>Connect with other digital nomads who've already made the move. Learn from their experiences.</p>
+                    <h3 data-i18n="buying_community_intros">Community Introductions</h3>
+                    <p data-i18n="buying_community_desc">Connect with other digital nomads who've already made the move. Learn from their experiences.</p>
                     <a href="blog.html?category=stories" class="engagement-btn">
-                        Read Stories
+                        <span data-i18n="buying_read_stories">Read Stories</span>
                     </a>
                 </div>
                 
@@ -959,10 +973,10 @@
                     <div class="engagement-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Market Insights Reports</h3>
-                    <p>Monthly reports on market trends, price movements, and investment opportunities in coastal Brazil.</p>
+                    <h3 data-i18n="buying_market_insights">Market Insights Reports</h3>
+                    <p data-i18n="buying_market_desc">Monthly reports on market trends, price movements, and investment opportunities in coastal Brazil.</p>
                     <a href="blog.html?category=market" class="engagement-btn">
-                        View Reports
+                        <span data-i18n="buying_view_reports">View Reports</span>
                     </a>
                 </div>
                 
@@ -970,10 +984,10 @@
                     <div class="engagement-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>Buyer Education Hub</h3>
-                    <p>Access guides, webinars, and resources to help you understand the Brazilian real estate market.</p>
+                    <h3 data-i18n="buying_education_hub">Buyer Education Hub</h3>
+                    <p data-i18n="buying_education_desc">Access guides, webinars, and resources to help you understand the Brazilian real estate market.</p>
                     <a href="blog.html" class="engagement-btn">
-                        Learn More
+                        <span data-i18n="buying_learn_more">Learn More</span>
                     </a>
                 </div>
             </div>
@@ -984,14 +998,14 @@
     <section class="faq-section">
         <div class="container">
             <div class="section-header" style="margin-bottom: 60px;">
-                <h2>❓ Frequently Asked Questions</h2>
-                <p>Everything you need to know about buying property in Brazil</p>
+                <h2>❓ <span data-i18n="buying_faq_title">Frequently Asked Questions</span></h2>
+                <p data-i18n="buying_faq_subtitle">Everything you need to know about buying property in Brazil</p>
             </div>
             
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>🌎 Can foreigners buy property in Brazil?</h3>
+                        <h3>🌎 <span data-i18n="buying_faq_q1">Can foreigners buy property in Brazil?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1005,7 +1019,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>💰 What are the total costs involved?</h3>
+                        <h3>💰 <span data-i18n="buying_faq_q2">What are the total costs involved?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1026,7 +1040,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>⏱️ How long does the process take?</h3>
+                        <h3>⏱️ <span data-i18n="buying_faq_q3">How long does the process take?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1046,7 +1060,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>🏦 Can I get financing/mortgage as a foreigner?</h3>
+                        <h3>🏦 <span data-i18n="buying_faq_q4">Can I get financing/mortgage as a foreigner?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1066,7 +1080,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>📜 Do I need a lawyer?</h3>
+                        <h3>📜 <span data-i18n="buying_faq_q5">Do I need a lawyer?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1088,7 +1102,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>🌐 Do I need to speak Portuguese?</h3>
+                        <h3>🌐 <span data-i18n="buying_faq_q6">Do I need to speak Portuguese?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1109,7 +1123,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>✈️ Do I need to visit in person?</h3>
+                        <h3>✈️ <span data-i18n="buying_faq_q7">Do I need to visit in person?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1130,7 +1144,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>💼 What about taxes and residency?</h3>
+                        <h3>💼 <span data-i18n="buying_faq_q8">What about taxes and residency?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1150,7 +1164,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>🔒 How safe is my investment?</h3>
+                        <h3>🔒 <span data-i18n="buying_faq_q9">How safe is my investment?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1172,7 +1186,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>📈 What's the ROI and appreciation potential?</h3>
+                        <h3>📈 <span data-i18n="buying_faq_q10">What's the ROI and appreciation potential?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1193,7 +1207,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>🏖️ Can I rent out my property?</h3>
+                        <h3>🏖️ <span data-i18n="buying_faq_q11">Can I rent out my property?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1213,7 +1227,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>🤝 What happens after the purchase?</h3>
+                        <h3>🤝 <span data-i18n="buying_faq_q12">What happens after the purchase?</span></h3>
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </div>
                     <div class="faq-answer">
@@ -1239,16 +1253,16 @@
     <!-- CTA Section -->
     <section class="container" style="padding: 80px 20px;">
         <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 24px; padding: 60px 40px; text-align: center; color: white;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Start Your Journey?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 40px; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;"><span data-i18n="buying_ready_title">Ready to Start Your Journey?</span></h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;" data-i18n="buying_ready_subtitle">
                 Let's find your perfect coastal property in Brazil. Schedule a free consultation and let's discuss your goals.
             </p>
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
                 <a href="https://wa.me/5541999999999?text=Hi%20Rodrigo!%20I'm%20ready%20to%20start" target="_blank" style="padding: 18px 36px; background: white; color: #10b981; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s;">
-                    <i class="fab fa-whatsapp"></i> Start Free Consultation
+                    <i class="fab fa-whatsapp"></i> <span data-i18n="buying_start_consultation">Start Free Consultation</span>
                 </a>
                 <a href="properties.html" style="padding: 18px 36px; background: rgba(255,255,255,0.2); color: white; border: 2px solid white; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s;">
-                    <i class="fas fa-home"></i> Browse Properties
+                    <i class="fas fa-home"></i> <span data-i18n="buying_browse_properties">Browse Properties</span>
                 </a>
             </div>
         </div>
@@ -1263,7 +1277,7 @@
                         <i class="fas fa-umbrella-beach"></i>
                         <span>CoastalNomad</span>
                     </div>
-                    <p>Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
+                    <p data-i18n="footer_about">Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
                     <div class="social-links">
                         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -1273,27 +1287,27 @@
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Explore</h4>
+                    <h4 data-i18n="footer_explore">Explore</h4>
                     <ul>
-                        <li><a href="properties.html">All Properties</a></li>
-                        <li><a href="events-travel.html">Events & Travel</a></li>
-                        <li><a href="buying-process.html">How to Buy</a></li>
-                        <li><a href="showcase.html">Portfolio</a></li>
+                        <li><a href="properties.html" data-i18n="footer_all_properties">All Properties</a></li>
+                        <li><a href="events-travel.html" data-i18n="footer_events">Events & Travel</a></li>
+                        <li><a href="buying-process.html" data-i18n="footer_how_to_buy">How to Buy</a></li>
+                        <li><a href="showcase.html" data-i18n="footer_portfolio">Portfolio</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Resources</h4>
+                    <h4 data-i18n="footer_resources">Resources</h4>
                     <ul>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog.html?category=guides">Destination Guides</a></li>
-                        <li><a href="demo-guide.html">Demo Guide (PT)</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html" data-i18n="footer_blog">Blog</a></li>
+                        <li><a href="blog.html?category=guides" data-i18n="footer_guides">Destination Guides</a></li>
+                        <li><a href="blog.html?category=hacks" data-i18n="footer_hacks">Nomad Life Hacks</a></li>
+                        <li><a href="about.html" data-i18n="footer_about_us">About Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4 data-i18n="footer_contact">Contact</h4>
                     <ul>
                         <li><i class="fab fa-whatsapp"></i> +55 (41) 99999-9999</li>
                         <li><i class="fas fa-envelope"></i> rodrigo@coastalnomad.com</li>
@@ -1303,10 +1317,10 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 CoastalNomad. All rights reserved.</p>
+                <p data-i18n="footer_copyright">&copy; 2024 CoastalNomad. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer_terms">Terms of Service</a>
                     <a href="admin.html" style="opacity: 0.5;">Admin</a>
                 </div>
             </div>
@@ -1314,6 +1328,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
     

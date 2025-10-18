@@ -1,0 +1,85 @@
+# TODAS AS NOVAS TRADUÇÕES PARA ADICIONAR NO i18n.js
+
+## INGLÊS (EN):
+
+// Quality of Life - Cards restantes
+qol_climate_title: "Perfect Climate",
+qol_climate_desc: "Mild temperatures year-round, endless beaches, and outdoor activities",
+qol_relocation_title: "Easy Relocation",
+qol_relocation_desc: "Friendly visa policies and welcoming culture for international buyers",
+
+// Success Stories
+stories_title: "Nomad Success Stories",
+stories_subtitle: "Real people living their dream coastal life",
+
+// CTA Section
+cta_title: "Ready to Find Your Coastal Paradise?",
+cta_subtitle: "Chat with us on WhatsApp and let's find your perfect property today",
+cta_btn_whatsapp: "Chat on WhatsApp",
+cta_btn_browse: "Browse Properties",
+
+// Newsletter
+newsletter_title: "Stay Updated on New Properties",
+newsletter_subtitle: "Get exclusive listings and nomad life tips delivered to your inbox",
+newsletter_email_placeholder: "Enter your email",
+newsletter_btn: "Subscribe",
+
+// Footer
+footer_about: "Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.",
+footer_explore: "Explore",
+footer_all_properties: "All Properties",
+footer_events: "Events & Travel",
+footer_how_to_buy: "How to Buy",
+footer_portfolio: "Portfolio",
+footer_resources: "Resources",
+footer_blog: "Blog",
+footer_guides: "Destination Guides",
+footer_hacks: "Nomad Life Hacks",
+footer_about_us: "About Us",
+footer_contact: "Contact",
+footer_copyright: "© 2024 CoastalNomad. All rights reserved.",
+footer_privacy: "Privacy Policy",
+footer_terms: "Terms of Service",
+
+---
+
+## PORTUGUÊS (PT-BR):
+
+// Quality of Life - Cards restantes
+qol_climate_title: "Clima Perfeito",
+qol_climate_desc: "Temperaturas amenas o ano todo, praias infinitas e atividades ao ar livre",
+qol_relocation_title: "Fácil Relocação",
+qol_relocation_desc: "Políticas de visto amigáveis e cultura acolhedora para compradores internacionais",
+
+// Success Stories
+stories_title: "Histórias de Sucesso de Nômades",
+stories_subtitle: "Pessoas reais vivendo seus sonhos de vida costeira",
+
+// CTA Section
+cta_title: "Pronto para Encontrar Seu Paraíso Costeiro?",
+cta_subtitle: "Converse conosco no WhatsApp e vamos encontrar sua propriedade perfeita hoje",
+cta_btn_whatsapp: "Conversar no WhatsApp",
+cta_btn_browse: "Navegar pelas Propriedades",
+
+// Newsletter
+newsletter_title: "Receba Atualizações sobre Novas Propriedades",
+newsletter_subtitle: "Receba listagens exclusivas e dicas de vida nômade direto na sua caixa de entrada",
+newsletter_email_placeholder: "Digite seu e-mail",
+newsletter_btn: "Inscrever-se",
+
+// Footer
+footer_about: "Seu parceiro confiável para imóveis costeiros no Sul do Brasil. Ajudando nômades digitais a encontrar seu lar perfeito desde 2024.",
+footer_explore: "Explorar",
+footer_all_properties: "Todas as Propriedades",
+footer_events: "Eventos & Viagens",
+footer_how_to_buy: "Como Comprar",
+footer_portfolio: "Portfólio",
+footer_resources: "Recursos",
+footer_blog: "Blog",
+footer_guides: "Guias de Destinos",
+footer_hacks: "Dicas de Vida Nômade",
+footer_about_us: "Sobre Nós",
+footer_contact: "Contato",
+footer_copyright: "© 2024 CoastalNomad. Todos os direitos reservados.",
+footer_privacy: "Política de Privacidade",
+footer_terms: "Termos de Serviço",

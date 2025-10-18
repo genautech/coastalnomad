@@ -25,19 +25,33 @@
         <div class="container">
             <div class="nav-content">
                 <a href="index.html" class="logo">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <span>CoastalNomad</span>
+                    <div class="logo-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-brand">CoastalNomad</span>
+                        <span class="logo-tagline">by <strong>Rodrigo Torrezan</strong></span>
+                    </div>
                 </a>
                 <div class="nav-links" id="navLinks">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="properties.html" class="nav-link active">Properties</a>
-                    <a href="events-travel.html" class="nav-link">Events & Travel</a>
-                    <a href="buying-process.html" class="nav-link">How to Buy</a>
-                    <a href="blog.html" class="nav-link">Blog</a>
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+                    <a href="properties.html" class="nav-link active" data-i18n="nav_properties">Properties</a>
+                    <a href="events-travel.html" class="nav-link" data-i18n="nav_events">Events & Travel</a>
+                    <a href="buying-process.html" class="nav-link" data-i18n="nav_buying_process">How to Buy</a>
+                    <a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
                     <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20interested%20in%20coastal%20properties" target="_blank" class="btn btn-primary btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> Contact Us
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="btn_contact">Contact Us</span>
                     </a>
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <button class="language-flag" data-lang="en" title="English">
+                            🇺🇸
+                        </button>
+                        <button class="language-flag" data-lang="pt-BR" title="Português">
+                            🇧🇷
+                        </button>
+                    </div>
                 </div>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
@@ -49,8 +63,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Find Your Perfect Property</h1>
-            <p>Explore our curated selection of coastal properties designed for digital nomads</p>
+            <h1 data-i18n="properties_title">Find Your Perfect Property</h1>
+            <p data-i18n="properties_subtitle">Explore our curated selection of coastal properties designed for digital nomads</p>
         </div>
     </section>
 
@@ -59,81 +73,81 @@
         <div class="container">
             <div class="filters-container">
                 <div class="filters-header">
-                    <h3><i class="fas fa-filter"></i> Filters</h3>
-                    <button class="btn-text" id="clearFilters">Clear All</button>
+                    <h3><i class="fas fa-filter"></i> <span data-i18n="properties_filters">Filters</span></h3>
+                    <button class="btn-text" id="clearFilters" data-i18n="properties_clear_filters">Clear All</button>
                 </div>
                 
                 <div class="filters-grid">
                     <div class="filter-group">
-                        <label>Location</label>
+                        <label data-i18n="hero_search_location">Location</label>
                         <select id="filterLocation" class="filter-select">
-                            <option value="">All Locations</option>
-                            <option value="curitiba">Curitiba</option>
-                            <option value="florianopolis">Florianópolis</option>
-                            <option value="balneario">Balneário Camboriú</option>
-                            <option value="ilha-mel">Ilha do Mel</option>
-                            <option value="guaratuba">Guaratuba</option>
+                            <option value="" data-i18n="hero_search_location_all">All Locations</option>
+                            <option value="curitiba" data-i18n="location_curitiba">Curitiba</option>
+                            <option value="florianopolis" data-i18n="location_florianopolis">Florianópolis</option>
+                            <option value="balneario" data-i18n="location_balneario">Balneário Camboriú</option>
+                            <option value="ilha-mel" data-i18n="location_ilhadomel">Ilha do Mel</option>
+                            <option value="guaratuba" data-i18n="location_guaratuba">Guaratuba</option>
                         </select>
                     </div>
                     
                     <div class="filter-group">
-                        <label>Property Type</label>
+                        <label data-i18n="hero_search_type">Property Type</label>
                         <select id="filterType" class="filter-select">
-                            <option value="">All Types</option>
-                            <option value="apartment">Apartment</option>
-                            <option value="house">House</option>
-                            <option value="condo">Condo</option>
-                            <option value="land">Land</option>
+                            <option value="" data-i18n="hero_search_type_all">All Types</option>
+                            <option value="apartment" data-i18n="type_apartment">Apartment</option>
+                            <option value="house" data-i18n="type_house">House</option>
+                            <option value="condo" data-i18n="type_condo">Condo</option>
+                            <option value="land" data-i18n="type_land">Land</option>
                         </select>
                     </div>
                     
                     <div class="filter-group">
-                        <label>Price Range (USD)</label>
+                        <label data-i18n="hero_search_price">Price Range (USD)</label>
                         <select id="filterPrice" class="filter-select">
-                            <option value="">Any Price</option>
-                            <option value="0-100000">Up to $100k</option>
-                            <option value="100000-250000">$100k - $250k</option>
-                            <option value="250000-500000">$250k - $500k</option>
-                            <option value="500000+">$500k+</option>
+                            <option value="" data-i18n="hero_search_price_all">Any Price</option>
+                            <option value="0-100000" data-i18n="price_100k">Up to $100k</option>
+                            <option value="100000-250000" data-i18n="price_100k_250k">$100k - $250k</option>
+                            <option value="250000-500000" data-i18n="price_250k_500k">$250k - $500k</option>
+                            <option value="500000+" data-i18n="price_500k_plus">$500k+</option>
                         </select>
                     </div>
                     
                     <div class="filter-group">
-                        <label>Lifestyle</label>
+                        <label data-i18n="hero_search_lifestyle">Lifestyle</label>
                         <select id="filterLifestyle" class="filter-select">
-                            <option value="">Any Lifestyle</option>
-                            <option value="beach">🏄 Beach Life</option>
-                            <option value="mountain">🌲 Mountain Vibes</option>
-                            <option value="urban">🏙️ Urban Hub</option>
-                            <option value="wellness">🧘 Wellness</option>
-                            <option value="creative">🎨 Creative Community</option>
+                            <option value="" data-i18n="hero_search_lifestyle_all">Any Lifestyle</option>
+                            <option value="beach" data-i18n="lifestyle_beach_emoji">🏄 Beach Life</option>
+                            <option value="mountain" data-i18n="lifestyle_mountain_emoji">🌲 Mountain Vibes</option>
+                            <option value="urban" data-i18n="lifestyle_urban_emoji">🏙️ Urban Hub</option>
+                            <option value="wellness" data-i18n="lifestyle_wellness_emoji">🧘 Wellness</option>
+                            <option value="creative" data-i18n="lifestyle_creative_emoji">🎨 Creative Community</option>
                         </select>
                     </div>
                 </div>
                 
                 <!-- Amenities Filters -->
                 <div class="amenities-filters">
-                    <label>Amenities</label>
+                    <label data-i18n="amenities_label">Amenities</label>
                     <div class="amenities-checkboxes">
                         <label class="checkbox-label">
                             <input type="checkbox" value="fiber" class="amenity-checkbox">
-                            <span>🚀 Fiber Internet</span>
+                            <span>🚀 <span data-i18n="amenity_fiber_internet">Fiber Internet</span></span>
                         </label>
                         <label class="checkbox-label">
                             <input type="checkbox" value="coworking" class="amenity-checkbox">
-                            <span>☕ Coworking Nearby</span>
+                            <span>☕ <span data-i18n="amenity_coworking_nearby">Coworking Nearby</span></span>
                         </label>
                         <label class="checkbox-label">
                             <input type="checkbox" value="beach" class="amenity-checkbox">
-                            <span>🏖️ Beach Access</span>
+                            <span>🏖️ <span data-i18n="amenity_beach_access">Beach Access</span></span>
                         </label>
                         <label class="checkbox-label">
                             <input type="checkbox" value="pool" class="amenity-checkbox">
-                            <span>🏊 Pool</span>
+                            <span>🏊 <span data-i18n="amenity_pool_label">Pool</span></span>
                         </label>
                         <label class="checkbox-label">
                             <input type="checkbox" value="gym" class="amenity-checkbox">
-                            <span>💪 Gym</span>
+                            <span>💪 <span data-i18n="amenity_gym_label">Gym</span></span>
                         </label>
                     </div>
                 </div>
@@ -162,9 +176,9 @@
             
             <div class="no-results" id="noResults" style="display: none;">
                 <i class="fas fa-search"></i>
-                <h3>No properties found</h3>
-                <p>Try adjusting your filters to see more results</p>
-                <button class="btn btn-primary" id="resetFiltersBtn">Reset Filters</button>
+                <h3 data-i18n="properties_no_results">No properties found</h3>
+                <p data-i18n="properties_no_results_desc">Try adjusting your filters to see more results</p>
+                <button class="btn btn-primary" id="resetFiltersBtn" data-i18n="properties_reset_filters">Reset Filters</button>
             </div>
         </div>
     </section>
@@ -173,11 +187,11 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Can't Find What You're Looking For?</h2>
-                <p>Let us know your requirements and we'll find the perfect property for you</p>
+                <h2 data-i18n="properties_cta_title">Can't Find What You're Looking For?</h2>
+                <p data-i18n="properties_cta_subtitle">Let us know your requirements and we'll find the perfect property for you</p>
                 <div class="cta-buttons">
                     <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20looking%20for%20a%20specific%20type%20of%20property" target="_blank" class="btn btn-large btn-whatsapp-large">
-                        <i class="fab fa-whatsapp"></i> Tell Us What You Need
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="properties_cta_btn">Tell Us What You Need</span>
                     </a>
                 </div>
             </div>
@@ -193,7 +207,7 @@
                         <i class="fas fa-umbrella-beach"></i>
                         <span>CoastalNomad</span>
                     </div>
-                    <p>Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
+                    <p data-i18n="footer_about">Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
                     <div class="social-links">
                         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -203,27 +217,27 @@
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Explore</h4>
+                    <h4 data-i18n="footer_explore">Explore</h4>
                     <ul>
-                        <li><a href="properties.html">All Properties</a></li>
-                        <li><a href="properties.html?location=curitiba">Curitiba</a></li>
-                        <li><a href="properties.html?location=florianopolis">Florianópolis</a></li>
-                        <li><a href="properties.html?location=balneario">Balneário Camboriú</a></li>
+                        <li><a href="properties.html" data-i18n="footer_all_properties">All Properties</a></li>
+                        <li><a href="events-travel.html" data-i18n="footer_events">Events & Travel</a></li>
+                        <li><a href="buying-process.html" data-i18n="footer_how_to_buy">How to Buy</a></li>
+                        <li><a href="showcase.html" data-i18n="footer_portfolio">Portfolio</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Resources</h4>
+                    <h4 data-i18n="footer_resources">Resources</h4>
                     <ul>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog.html?category=guides">Destination Guides</a></li>
-                        <li><a href="blog.html?category=hacks">Nomad Life Hacks</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html" data-i18n="footer_blog">Blog</a></li>
+                        <li><a href="blog.html?category=guides" data-i18n="footer_guides">Destination Guides</a></li>
+                        <li><a href="blog.html?category=hacks" data-i18n="footer_hacks">Nomad Life Hacks</a></li>
+                        <li><a href="about.html" data-i18n="footer_about_us">About Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4 data-i18n="footer_contact">Contact</h4>
                     <ul>
                         <li><i class="fab fa-whatsapp"></i> +55 (41) 99999-9999</li>
                         <li><i class="fas fa-envelope"></i> rodrigo@coastalnomad.com</li>
@@ -233,10 +247,11 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 CoastalNomad. All rights reserved.</p>
+                <p data-i18n="footer_copyright">&copy; 2024 CoastalNomad. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer_terms">Terms of Service</a>
+                    <a href="admin.html" style="opacity: 0.5;">Admin</a>
                 </div>
             </div>
         </div>
@@ -244,6 +259,7 @@
 
     <!-- Scripts -->
     <script src="js/data.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/properties.js"></script>
     <script src="js/chatbot.js"></script>
 </body>

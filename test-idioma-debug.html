@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Seletor de Idioma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .language-selector {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .language-flag {
+            font-size: 2rem;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            background: white;
+        }
+        .language-flag.active {
+            border-color: #0077CC;
+            background: #e3f2fd;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h2 { color: #333; }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .status.success { background: #d4edda; color: #155724; }
+        .status.error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste do Seletor de Idioma</h1>
+    
+    <div class="test-section">
+        <h2>Seletor de Idioma</h2>
+        <div class="language-selector">
+            <button class="language-flag" data-lang="en" title="English">🇺🇸</button>
+            <button class="language-flag" data-lang="pt-BR" title="Português">🇧🇷</button>
+        </div>
+        <div id="status"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Elementos para Tradução</h2>
+        <ul>
+            <li><strong data-i18n="nav_home">Home</strong></li>
+            <li><strong data-i18n="nav_properties">Properties</strong></li>
+            <li><strong data-i18n="nav_events">Events & Travel</strong></li>
+            <li><strong data-i18n="nav_buying_process">How to Buy</strong></li>
+            <li><strong data-i18n="nav_blog">Blog</strong></li>
+            <li><strong data-i18n="nav_about">About</strong></li>
+            <li><strong data-i18n="btn_contact">Contact Us</strong></li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Console Log</h2>
+        <div id="console-log" style="background: #f5f5f5; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre-wrap; max-height: 300px; overflow-y: auto;"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/i18n.js"></script>
+    
+    <script>
+        // Captura console.log para exibir na página
+        const consoleDiv = document.getElementById('console-log');
+        const originalLog = console.log;
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            consoleDiv.textContent += args.join(' ') + '\n';
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        };
+
+        // Adiciona listener manual para debug
+        setTimeout(() => {
+            const flags = document.querySelectorAll('.language-flag');
+            const statusDiv = document.getElementById('status');
+            
+            console.log('\n🔍 VERIFICAÇÃO MANUAL:');
+            console.log(`Bandeiras encontradas: ${flags.length}`);
+            console.log(`i18nManager existe? ${typeof i18nManager !== 'undefined'}`);
+            
+            if (typeof i18nManager !== 'undefined') {
+                console.log(`Idioma atual: ${i18nManager.currentLanguage}`);
+                statusDiv.innerHTML = '<div class="status success">✅ Sistema i18n carregado com sucesso!</div>';
+            } else {
+                statusDiv.innerHTML = '<div class="status error">❌ Sistema i18n NÃO foi carregado!</div>';
+            }
+            
+            // Testa clique manualmente
+            flags.forEach((flag, index) => {
+                flag.addEventListener('click', () => {
+                    console.log(`\n🖱️ CLIQUE MANUAL DETECTADO na bandeira ${index + 1}`);
+                    console.log(`Data-lang: ${flag.dataset.lang}`);
+                });
+            });
+        }, 1000);
+
+        // Monitora mudanças de idioma
+        document.addEventListener('languageChanged', (e) => {
+            console.log(`\n🎉 EVENTO languageChanged RECEBIDO!`);
+            console.log(`Novo idioma: ${e.detail.language}`);
+        });
+    </script>
+</body>
+</html>

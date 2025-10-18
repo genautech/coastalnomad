@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto-Click Test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { padding: 40px; font-family: Arial, sans-serif; }
+        .result { padding: 20px; margin: 20px 0; border-radius: 8px; font-size: 18px; font-weight: bold; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .translated-item { padding: 15px; margin: 10px 0; background: #f5f5f5; border-left: 4px solid #0077CC; }
+    </style>
+</head>
+<body>
+    <h1>🤖 Teste Automático de Clique</h1>
+    
+    <div class="language-selector">
+        <button class="language-flag" data-lang="en">🇺🇸</button>
+        <button class="language-flag" data-lang="pt-BR">🇧🇷</button>
+    </div>
+
+    <div id="results"></div>
+    
+    <h2>Elementos:</h2>
+    <div class="translated-item" data-i18n="nav_home">Home</div>
+    <div class="translated-item" data-i18n="nav_properties">Properties</div>
+    <div class="translated-item" data-i18n="btn_contact">Contact Us</div>
+
+    <script src="js/i18n.js"></script>
+    <script>
+        const results = document.getElementById('results');
+
+        function showResult(msg, success = true) {
+            const div = document.createElement('div');
+            div.className = `result ${success ? 'success' : 'error'}`;
+            div.textContent = msg;
+            results.appendChild(div);
+            console.log(msg);
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                console.log('\n🚀 TESTE AUTOMÁTICO INICIANDO...\n');
+                
+                // Verifica se i18nManager existe
+                if (!window.i18nManager) {
+                    showResult('❌ ERRO: i18nManager não encontrado!', false);
+                    return;
+                }
+                
+                showResult(`✅ i18nManager encontrado (idioma: ${window.i18nManager.currentLanguage})`);
+                
+                // Testa troca para português
+                setTimeout(() => {
+                    console.log('\n🇧🇷 Testando troca para PORTUGUÊS...\n');
+                    const brFlag = document.querySelector('[data-lang="pt-BR"]');
+                    
+                    if (brFlag) {
+                        // Simula clique
+                        brFlag.click();
+                        
+                        // Verifica resultado após 500ms
+                        setTimeout(() => {
+                            const homeEl = document.querySelector('[data-i18n="nav_home"]');
+                            if (homeEl && homeEl.textContent === 'Início') {
+                                showResult('✅ PORTUGUÊS FUNCIONOU! "Home" → "Início"');
+                            } else {
+                                showResult(`❌ PORTUGUÊS FALHOU! Texto: "${homeEl?.textContent}"`, false);
+                            }
+                            
+                            // Testa voltar para inglês
+                            setTimeout(() => {
+                                console.log('\n🇺🇸 Testando volta para INGLÊS...\n');
+                                const enFlag = document.querySelector('[data-lang="en"]');
+                                enFlag.click();
+                                
+                                setTimeout(() => {
+                                    const homeEl = document.querySelector('[data-i18n="nav_home"]');
+                                    if (homeEl && homeEl.textContent === 'Home') {
+                                        showResult('✅ INGLÊS FUNCIONOU! "Início" → "Home"');
+                                        showResult('🎉 TODOS OS TESTES PASSARAM!');
+                                    } else {
+                                        showResult(`❌ INGLÊS FALHOU! Texto: "${homeEl?.textContent}"`, false);
+                                    }
+                                }, 500);
+                            }, 1000);
+                        }, 500);
+                    } else {
+                        showResult('❌ Bandeira brasileira não encontrada!', false);
+                    }
+                }, 1000);
+                
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

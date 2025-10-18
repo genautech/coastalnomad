@@ -25,19 +25,33 @@
         <div class="container">
             <div class="nav-content">
                 <a href="index.html" class="logo">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <span>CoastalNomad</span>
+                    <div class="logo-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-brand">CoastalNomad</span>
+                        <span class="logo-tagline">by <strong>Rodrigo Torrezan</strong></span>
+                    </div>
                 </a>
                 <div class="nav-links" id="navLinks">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="properties.html" class="nav-link">Properties</a>
-                    <a href="events-travel.html" class="nav-link">Events & Travel</a>
-                    <a href="buying-process.html" class="nav-link">How to Buy</a>
-                    <a href="blog.html" class="nav-link active">Blog</a>
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+                    <a href="properties.html" class="nav-link" data-i18n="nav_properties">Properties</a>
+                    <a href="events-travel.html" class="nav-link" data-i18n="nav_events">Events & Travel</a>
+                    <a href="buying-process.html" class="nav-link" data-i18n="nav_buying_process">How to Buy</a>
+                    <a href="blog.html" class="nav-link active" data-i18n="nav_blog">Blog</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
                     <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20interested%20in%20coastal%20properties" target="_blank" class="btn btn-primary btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> Contact Us
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="btn_contact">Contact Us</span>
                     </a>
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <button class="language-flag" data-lang="en" title="English">
+                            🇺🇸
+                        </button>
+                        <button class="language-flag" data-lang="pt-BR" title="Português">
+                            🇧🇷
+                        </button>
+                    </div>
                 </div>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
@@ -49,8 +63,8 @@
     <!-- Page Header -->
     <section class="page-header blog-header">
         <div class="container">
-            <h1>Nomad Life Blog</h1>
-            <p>Guides, tips, and stories for digital nomads living on Brazil's coast</p>
+            <h1 data-i18n="blog_title">Nomad Life Blog</h1>
+            <p data-i18n="blog_subtitle">Guides, tips, and stories for digital nomads living on Brazil's coast</p>
         </div>
     </section>
 
@@ -59,22 +73,22 @@
         <div class="container">
             <div class="categories-scroll">
                 <button class="category-btn active" data-category="all">
-                    <i class="fas fa-th"></i> All Posts
+                    <i class="fas fa-th"></i> <span data-i18n="blog_cat_all">All Posts</span>
                 </button>
                 <button class="category-btn" data-category="guides">
-                    <i class="fas fa-map"></i> Destination Guides
+                    <i class="fas fa-map"></i> <span data-i18n="blog_cat_guides">Destination Guides</span>
                 </button>
                 <button class="category-btn" data-category="hacks">
-                    <i class="fas fa-lightbulb"></i> Nomad Life Hacks
+                    <i class="fas fa-lightbulb"></i> <span data-i18n="blog_cat_hacks">Nomad Life Hacks</span>
                 </button>
                 <button class="category-btn" data-category="stories">
-                    <i class="fas fa-heart"></i> Success Stories
+                    <i class="fas fa-heart"></i> <span data-i18n="blog_cat_stories">Success Stories</span>
                 </button>
                 <button class="category-btn" data-category="market">
-                    <i class="fas fa-chart-line"></i> Market Insights
+                    <i class="fas fa-chart-line"></i> <span data-i18n="blog_cat_market">Market Insights</span>
                 </button>
                 <button class="category-btn" data-category="cultural">
-                    <i class="fas fa-globe"></i> Cultural Tips
+                    <i class="fas fa-globe"></i> <span data-i18n="blog_cat_cultural">Cultural Tips</span>
                 </button>
             </div>
         </div>
@@ -89,13 +103,13 @@
                     <span class="article-category">Destination Guides</span>
                 </div>
                 <div class="featured-text">
-                    <h2>The Complete Guide to Living in Florianópolis as a Digital Nomad</h2>
-                    <p>Discover why Floripa is becoming the #1 destination for digital nomads in South America. From the best neighborhoods to coworking spaces, internet speeds, and cost breakdowns.</p>
+                    <h2 data-i18n="blog_featured_title">The Complete Guide to Living in Florianópolis as a Digital Nomad</h2>
+                    <p data-i18n="blog_featured_desc">Discover why Floripa is becoming the #1 destination for digital nomads in South America. From the best neighborhoods to coworking spaces, internet speeds, and cost breakdowns.</p>
                     <div class="article-meta">
-                        <span><i class="far fa-clock"></i> 12 min read</span>
+                        <span><i class="far fa-clock"></i> 12 <span data-i18n="blog_read_time">min read</span></span>
                         <span><i class="far fa-calendar"></i> January 15, 2024</span>
                     </div>
-                    <a href="#" class="btn btn-primary">Read Article <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn btn-primary"><span data-i18n="blog_read_article">Read Article</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -120,7 +134,7 @@
                             <span><i class="far fa-calendar"></i> January 10, 2024</span>
                         </div>
                         <div class="blog-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more"><span data-i18n="blog_read_more">Read More</span> <i class="fas fa-arrow-right"></i></a>
                             <div class="blog-share">
                                 <button class="share-icon"><i class="fas fa-share-alt"></i></button>
                             </div>
@@ -142,7 +156,7 @@
                             <span><i class="far fa-calendar"></i> January 8, 2024</span>
                         </div>
                         <div class="blog-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more"><span data-i18n="blog_read_more">Read More</span> <i class="fas fa-arrow-right"></i></a>
                             <div class="blog-share">
                                 <button class="share-icon"><i class="fas fa-share-alt"></i></button>
                             </div>
@@ -164,7 +178,7 @@
                             <span><i class="far fa-calendar"></i> January 5, 2024</span>
                         </div>
                         <div class="blog-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more"><span data-i18n="blog_read_more">Read More</span> <i class="fas fa-arrow-right"></i></a>
                             <div class="blog-share">
                                 <button class="share-icon"><i class="fas fa-share-alt"></i></button>
                             </div>
@@ -186,7 +200,7 @@
                             <span><i class="far fa-calendar"></i> December 28, 2023</span>
                         </div>
                         <div class="blog-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more"><span data-i18n="blog_read_more">Read More</span> <i class="fas fa-arrow-right"></i></a>
                             <div class="blog-share">
                                 <button class="share-icon"><i class="fas fa-share-alt"></i></button>
                             </div>
@@ -208,7 +222,7 @@
                             <span><i class="far fa-calendar"></i> December 22, 2023</span>
                         </div>
                         <div class="blog-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more"><span data-i18n="blog_read_more">Read More</span> <i class="fas fa-arrow-right"></i></a>
                             <div class="blog-share">
                                 <button class="share-icon"><i class="fas fa-share-alt"></i></button>
                             </div>
@@ -230,7 +244,7 @@
                             <span><i class="far fa-calendar"></i> December 18, 2023</span>
                         </div>
                         <div class="blog-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-more"><span data-i18n="blog_read_more">Read More</span> <i class="fas fa-arrow-right"></i></a>
                             <div class="blog-share">
                                 <button class="share-icon"><i class="fas fa-share-alt"></i></button>
                             </div>
@@ -268,7 +282,7 @@
                         <i class="fas fa-umbrella-beach"></i>
                         <span>CoastalNomad</span>
                     </div>
-                    <p>Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
+                    <p data-i18n="footer_about">Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
                     <div class="social-links">
                         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -278,27 +292,27 @@
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Explore</h4>
+                    <h4 data-i18n="footer_explore">Explore</h4>
                     <ul>
-                        <li><a href="properties.html">All Properties</a></li>
-                        <li><a href="properties.html?location=curitiba">Curitiba</a></li>
-                        <li><a href="properties.html?location=florianopolis">Florianópolis</a></li>
-                        <li><a href="properties.html?location=balneario">Balneário Camboriú</a></li>
+                        <li><a href="properties.html" data-i18n="footer_all_properties">All Properties</a></li>
+                        <li><a href="events-travel.html" data-i18n="footer_events">Events & Travel</a></li>
+                        <li><a href="buying-process.html" data-i18n="footer_how_to_buy">How to Buy</a></li>
+                        <li><a href="showcase.html" data-i18n="footer_portfolio">Portfolio</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Resources</h4>
+                    <h4 data-i18n="footer_resources">Resources</h4>
                     <ul>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog.html?category=guides">Destination Guides</a></li>
-                        <li><a href="blog.html?category=hacks">Nomad Life Hacks</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html" data-i18n="footer_blog">Blog</a></li>
+                        <li><a href="blog.html?category=guides" data-i18n="footer_guides">Destination Guides</a></li>
+                        <li><a href="blog.html?category=hacks" data-i18n="footer_hacks">Nomad Life Hacks</a></li>
+                        <li><a href="about.html" data-i18n="footer_about_us">About Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4 data-i18n="footer_contact">Contact</h4>
                     <ul>
                         <li><i class="fab fa-whatsapp"></i> +55 (41) 99999-9999</li>
                         <li><i class="fas fa-envelope"></i> rodrigo@coastalnomad.com</li>
@@ -308,16 +322,18 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 CoastalNomad. All rights reserved.</p>
+                <p data-i18n="footer_copyright">&copy; 2024 CoastalNomad. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer_terms">Terms of Service</a>
+                    <a href="admin.html" style="opacity: 0.5;">Admin</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/blog.js"></script>
     <script src="js/chatbot.js"></script>

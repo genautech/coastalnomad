@@ -25,19 +25,33 @@
         <div class="container">
             <div class="nav-content">
                 <a href="index.html" class="logo">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <span>CoastalNomad</span>
+                    <div class="logo-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-brand">CoastalNomad</span>
+                        <span class="logo-tagline">by <strong>Rodrigo Torrezan</strong></span>
+                    </div>
                 </a>
                 <div class="nav-links" id="navLinks">
-                    <a href="index.html" class="nav-link active">Home</a>
-                    <a href="properties.html" class="nav-link">Properties</a>
-                    <a href="events-travel.html" class="nav-link">Events & Travel</a>
-                    <a href="buying-process.html" class="nav-link">How to Buy</a>
-                    <a href="blog.html" class="nav-link">Blog</a>
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a>
+                    <a href="properties.html" class="nav-link" data-i18n="nav_properties">Properties</a>
+                    <a href="events-travel.html" class="nav-link" data-i18n="nav_events">Events & Travel</a>
+                    <a href="buying-process.html" class="nav-link" data-i18n="nav_buying_process">How to Buy</a>
+                    <a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
                     <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20interested%20in%20coastal%20properties" target="_blank" class="btn btn-primary btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> Contact Us
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="btn_contact">Contact Us</span>
                     </a>
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <button class="language-flag" data-lang="en" title="English">
+                            🇺🇸
+                        </button>
+                        <button class="language-flag" data-lang="pt-BR" title="Português">
+                            🇧🇷
+                        </button>
+                    </div>
                 </div>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
@@ -46,66 +60,112 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero Section with Slideshow -->
+    <section class="hero" id="heroSection">
+        <!-- Background Slideshow -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=1920&h=1080&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1920&h=1080&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&h=1080&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=1920&h=1080&fit=crop&q=80');"></div>
+        </div>
+        
         <div class="hero-overlay"></div>
+        
+        <!-- Slideshow Controls -->
+        <div class="hero-controls">
+            <button class="hero-control-btn" id="heroPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="hero-control-btn" id="heroNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <!-- Slideshow Indicators -->
+        <div class="hero-indicators">
+            <span class="hero-indicator active" data-slide="0"></span>
+            <span class="hero-indicator" data-slide="1"></span>
+            <span class="hero-indicator" data-slide="2"></span>
+            <span class="hero-indicator" data-slide="3"></span>
+        </div>
+        
         <div class="hero-content">
             <div class="container">
-                <h1 class="hero-title animate-fade-in">
-                    Your Coastal Paradise<br>
-                    <span class="gradient-text">Awaits in Brazil</span>
-                </h1>
-                <p class="hero-tagline animate-fade-in-delay">
-                    by Rodrigo Torrezan - Digital Nomad Real Estate Expert
-                </p>
-                <p class="hero-subtitle animate-fade-in-delay">
-                    Premium properties for digital nomads in Curitiba, Paraná & Santa Catarina coast.<br>
-                    Work remotely. Live beautifully. Invest smartly.
-                </p>
-                
-                <!-- CTA Buttons -->
-                <div class="hero-cta animate-slide-up">
-                    <button class="btn btn-large btn-demo" id="openChatDemoBtn">
-                        <i class="fas fa-play-circle"></i> See How Rodrigo Helps You
-                    </button>
+                <div class="hero-text-content">
+                    <h1 class="hero-title animate-fade-in">
+                        <span data-i18n="hero_title_1">Your Coastal Paradise</span><br>
+                        <span class="gradient-text" data-i18n="hero_title_2">Awaits in Brazil</span>
+                    </h1>
+                    <p class="hero-tagline animate-fade-in-delay">
+                        <span data-i18n="hero_tagline">by Rodrigo Torrezan - Digital Nomad Real Estate Expert</span>
+                    </p>
+                    <p class="hero-subtitle animate-fade-in-delay">
+                        <span data-i18n="hero_subtitle">Premium properties for digital nomads in Curitiba, Paraná & Santa Catarina coast. Work remotely. Live beautifully. Invest smartly.</span>
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="hero-cta animate-slide-up">
+                        <button class="btn btn-large btn-demo" id="openChatDemoBtn">
+                            <i class="fas fa-play-circle"></i> <span data-i18n="hero_cta_demo">See How Rodrigo Helps You</span>
+                        </button>
+                    </div>
                 </div>
                 
-                <!-- Search Bar -->
-                <div class="search-container animate-slide-up">
-                    <form class="search-form" id="heroSearchForm">
-                        <div class="search-field">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <select name="location" id="heroLocation">
-                                <option value="">All Locations</option>
-                                <option value="curitiba">Curitiba</option>
-                                <option value="florianopolis">Florianópolis</option>
-                                <option value="balneario">Balneário Camboriú</option>
-                                <option value="ilha-mel">Ilha do Mel</option>
-                                <option value="guaratuba">Guaratuba</option>
-                            </select>
+                <!-- Advanced Search Card -->
+                <div class="hero-search-card animate-slide-up">
+                    <div class="search-card-header">
+                        <h3><i class="fas fa-search"></i> <span data-i18n="hero_search_title">Find Your Dream Property</span></h3>
+                        <p data-i18n="hero_search_subtitle">Search from 8+ premium coastal properties</p>
+                    </div>
+                    <form class="search-form-advanced" id="heroSearchForm">
+                        <div class="search-row">
+                            <div class="search-field-advanced">
+                                <label><i class="fas fa-map-marker-alt"></i> <span data-i18n="hero_search_location">Location</span></label>
+                                <select name="location" id="heroLocation">
+                                    <option value="" data-i18n="hero_search_location_all">All Locations</option>
+                                    <option value="curitiba" data-i18n="location_curitiba">Curitiba</option>
+                                    <option value="florianopolis" data-i18n="location_florianopolis">Florianópolis</option>
+                                    <option value="balneario" data-i18n="location_balneario">Balneário Camboriú</option>
+                                    <option value="ilha-mel" data-i18n="location_ilhadomel">Ilha do Mel</option>
+                                    <option value="guaratuba" data-i18n="location_guaratuba">Guaratuba</option>
+                                </select>
+                            </div>
+                            <div class="search-field-advanced">
+                                <label><i class="fas fa-home"></i> <span data-i18n="hero_search_type">Property Type</span></label>
+                                <select name="type" id="heroType">
+                                    <option value="" data-i18n="hero_search_type_all">All Types</option>
+                                    <option value="apartment" data-i18n="type_apartment">Apartment</option>
+                                    <option value="house" data-i18n="type_house">House</option>
+                                    <option value="condo" data-i18n="type_condo">Condo</option>
+                                    <option value="land" data-i18n="type_land">Land</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="search-field">
-                            <i class="fas fa-home"></i>
-                            <select name="type" id="heroType">
-                                <option value="">Property Type</option>
-                                <option value="apartment">Apartment</option>
-                                <option value="house">House</option>
-                                <option value="condo">Condo</option>
-                                <option value="land">Land</option>
-                            </select>
+                        <div class="search-row">
+                            <div class="search-field-advanced">
+                                <label><i class="fas fa-dollar-sign"></i> <span data-i18n="hero_search_price">Price Range</span></label>
+                                <select name="price" id="heroPrice">
+                                    <option value="" data-i18n="hero_search_price_all">Any Price</option>
+                                    <option value="0-100000" data-i18n="price_100k">Up to $100k</option>
+                                    <option value="100000-250000" data-i18n="price_100k_250k">$100k - $250k</option>
+                                    <option value="250000-500000" data-i18n="price_250k_500k">$250k - $500k</option>
+                                    <option value="500000+" data-i18n="price_500k_plus">$500k+</option>
+                                </select>
+                            </div>
+                            <div class="search-field-advanced">
+                                <label><i class="fas fa-bed"></i> <span data-i18n="hero_search_bedrooms">Bedrooms</span></label>
+                                <select name="bedrooms" id="heroBedrooms">
+                                    <option value="" data-i18n="bedrooms_any">Any</option>
+                                    <option value="1">1+</option>
+                                    <option value="2">2+</option>
+                                    <option value="3">3+</option>
+                                    <option value="4">4+</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="search-field">
-                            <i class="fas fa-dollar-sign"></i>
-                            <select name="price" id="heroPrice">
-                                <option value="">Price Range</option>
-                                <option value="0-100000">Up to $100k</option>
-                                <option value="100000-250000">$100k - $250k</option>
-                                <option value="250000-500000">$250k - $500k</option>
-                                <option value="500000+">$500k+</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-search">
-                            <i class="fas fa-search"></i> Search
+                        <button type="submit" class="btn btn-search-advanced">
+                            <i class="fas fa-search"></i> <span data-i18n="hero_search_btn">Search Properties</span>
                         </button>
                     </form>
                 </div>
@@ -154,23 +214,23 @@
             <div class="tags-grid">
                 <button class="tag-btn" data-lifestyle="beach">
                     <i class="fas fa-water"></i>
-                    <span>Beach Life</span>
+                    <span data-i18n="lifestyle_beach">Beach Life</span>
                 </button>
                 <button class="tag-btn" data-lifestyle="mountain">
                     <i class="fas fa-mountain"></i>
-                    <span>Mountain Vibes</span>
+                    <span data-i18n="lifestyle_mountain">Mountain Vibes</span>
                 </button>
                 <button class="tag-btn" data-lifestyle="urban">
                     <i class="fas fa-city"></i>
-                    <span>Urban Hub</span>
+                    <span data-i18n="lifestyle_urban">Urban Hub</span>
                 </button>
                 <button class="tag-btn" data-lifestyle="wellness">
                     <i class="fas fa-spa"></i>
-                    <span>Wellness</span>
+                    <span data-i18n="lifestyle_wellness">Wellness</span>
                 </button>
                 <button class="tag-btn" data-lifestyle="creative">
                     <i class="fas fa-palette"></i>
-                    <span>Creative Community</span>
+                    <span data-i18n="lifestyle_creative">Creative Community</span>
                 </button>
             </div>
         </div>
@@ -180,8 +240,8 @@
     <section class="featured-properties">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Properties</h2>
-                <p class="section-subtitle">Handpicked coastal paradises perfect for digital nomads</p>
+                <h2 class="section-title" data-i18n="featured_title">Featured Properties</h2>
+                <p class="section-subtitle" data-i18n="featured_subtitle">Handpicked coastal paradises perfect for digital nomads</p>
             </div>
             
             <div class="properties-grid" id="featuredPropertiesGrid">
@@ -190,10 +250,10 @@
             
             <div class="text-center" style="margin-top: 40px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
                 <a href="properties.html" class="btn btn-secondary">
-                    View All Properties <i class="fas fa-arrow-right"></i>
+                    <span data-i18n="btn_view_all">View All Properties</span> <i class="fas fa-arrow-right"></i>
                 </a>
                 <a href="showcase.html" class="btn btn-primary">
-                    <i class="fas fa-images"></i> Full Portfolio Showcase
+                    <i class="fas fa-images"></i> <span data-i18n="btn_portfolio">Full Portfolio Showcase</span>
                 </a>
             </div>
         </div>
@@ -203,8 +263,8 @@
     <section class="quality-life">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Why Brazil's Coast?</h2>
-                <p class="section-subtitle">Exceptional quality of life for digital nomads</p>
+                <h2 class="section-title" data-i18n="qol_main_title">Why Brazil's Coast?</h2>
+                <p class="section-subtitle" data-i18n="qol_main_subtitle">Exceptional quality of life for digital nomads</p>
             </div>
             
             <div class="quality-grid">
@@ -212,8 +272,8 @@
                     <div class="quality-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Safe Communities</h3>
-                    <p>Low crime rates in coastal neighborhoods with active expat communities</p>
+                    <h3 data-i18n="qol_safe_title">Safe Communities</h3>
+                    <p data-i18n="qol_safe_desc">Low crime rates in coastal neighborhoods with active expat communities</p>
                     <div class="quality-score">8.2/10</div>
                 </div>
                 
@@ -221,8 +281,8 @@
                     <div class="quality-icon">
                         <i class="fas fa-wallet"></i>
                     </div>
-                    <h3>Affordable Living</h3>
-                    <p>30-50% lower cost of living compared to North America or Europe</p>
+                    <h3 data-i18n="qol_affordable_title">Affordable Living</h3>
+                    <p data-i18n="qol_affordable_desc">30-50% lower cost of living compared to North America or Europe</p>
                     <div class="quality-score">9.1/10</div>
                 </div>
                 
@@ -230,8 +290,8 @@
                     <div class="quality-icon">
                         <i class="fas fa-wifi"></i>
                     </div>
-                    <h3>Fast Internet</h3>
-                    <p>Fiber optic connections up to 1Gbps available in most areas</p>
+                    <h3 data-i18n="qol_internet_title">Fast Internet</h3>
+                    <p data-i18n="qol_internet_desc">Fiber optic connections up to 1Gbps available in most areas</p>
                     <div class="quality-score">9.5/10</div>
                 </div>
                 
@@ -239,8 +299,8 @@
                     <div class="quality-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Vibrant Community</h3>
-                    <p>Growing digital nomad and expat communities with networking events</p>
+                    <h3 data-i18n="qol_community_title">Vibrant Community</h3>
+                    <p data-i18n="qol_community_desc">Growing digital nomad and expat communities with networking events</p>
                     <div class="quality-score">8.7/10</div>
                 </div>
                 
@@ -248,8 +308,8 @@
                     <div class="quality-icon">
                         <i class="fas fa-sun"></i>
                     </div>
-                    <h3>Perfect Climate</h3>
-                    <p>Mild temperatures year-round, endless beaches, and outdoor activities</p>
+                    <h3 data-i18n="qol_climate_title">Perfect Climate</h3>
+                    <p data-i18n="qol_climate_desc">Mild temperatures year-round, endless beaches, and outdoor activities</p>
                     <div class="quality-score">9.3/10</div>
                 </div>
                 
@@ -257,8 +317,8 @@
                     <div class="quality-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3>Easy Relocation</h3>
-                    <p>Friendly visa policies and welcoming culture for international buyers</p>
+                    <h3 data-i18n="qol_relocation_title">Easy Relocation</h3>
+                    <p data-i18n="qol_relocation_desc">Friendly visa policies and welcoming culture for international buyers</p>
                     <div class="quality-score">8.5/10</div>
                 </div>
             </div>
@@ -269,8 +329,8 @@
     <section class="success-stories">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Nomad Success Stories</h2>
-                <p class="section-subtitle">Real people living their dream coastal life</p>
+                <h2 class="section-title" data-i18n="stories_title">Nomad Success Stories</h2>
+                <p class="section-subtitle" data-i18n="stories_subtitle">Real people living their dream coastal life</p>
             </div>
             
             <div class="stories-grid">
@@ -326,14 +386,14 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Find Your Coastal Paradise?</h2>
-                <p>Chat with us on WhatsApp and let's find your perfect property today</p>
+                <h2 data-i18n="cta_title">Ready to Find Your Coastal Paradise?</h2>
+                <p data-i18n="cta_subtitle">Chat with us on WhatsApp and let's find your perfect property today</p>
                 <div class="cta-buttons">
                     <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20interested%20in%20coastal%20properties" target="_blank" class="btn btn-large btn-whatsapp-large">
-                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="cta_btn_whatsapp">Chat on WhatsApp</span>
                     </a>
                     <a href="properties.html" class="btn btn-large btn-secondary">
-                        Browse Properties
+                        <span data-i18n="cta_btn_browse">Browse Properties</span>
                     </a>
                 </div>
             </div>
@@ -344,11 +404,11 @@
     <section class="newsletter">
         <div class="container">
             <div class="newsletter-content">
-                <h3>Stay Updated on New Properties</h3>
-                <p>Get exclusive listings and nomad life tips delivered to your inbox</p>
+                <h3 data-i18n="newsletter_title">Stay Updated on New Properties</h3>
+                <p data-i18n="newsletter_subtitle">Get exclusive listings and nomad life tips delivered to your inbox</p>
                 <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                    <input type="email" data-i18n-placeholder="newsletter_email_placeholder" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary" data-i18n="newsletter_btn">Subscribe</button>
                 </form>
             </div>
         </div>
@@ -363,7 +423,7 @@
                         <i class="fas fa-umbrella-beach"></i>
                         <span>CoastalNomad</span>
                     </div>
-                    <p>Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
+                    <p data-i18n="footer_about">Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
                     <div class="social-links">
                         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -373,27 +433,27 @@
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Explore</h4>
+                    <h4 data-i18n="footer_explore">Explore</h4>
                     <ul>
-                        <li><a href="properties.html">All Properties</a></li>
-                        <li><a href="events-travel.html">Events & Travel</a></li>
-                        <li><a href="buying-process.html">How to Buy</a></li>
-                        <li><a href="showcase.html">Portfolio</a></li>
+                        <li><a href="properties.html" data-i18n="footer_all_properties">All Properties</a></li>
+                        <li><a href="events-travel.html" data-i18n="footer_events">Events & Travel</a></li>
+                        <li><a href="buying-process.html" data-i18n="footer_how_to_buy">How to Buy</a></li>
+                        <li><a href="showcase.html" data-i18n="footer_portfolio">Portfolio</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Resources</h4>
+                    <h4 data-i18n="footer_resources">Resources</h4>
                     <ul>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog.html?category=guides">Destination Guides</a></li>
-                        <li><a href="blog.html?category=hacks">Nomad Life Hacks</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html" data-i18n="footer_blog">Blog</a></li>
+                        <li><a href="blog.html?category=guides" data-i18n="footer_guides">Destination Guides</a></li>
+                        <li><a href="blog.html?category=hacks" data-i18n="footer_hacks">Nomad Life Hacks</a></li>
+                        <li><a href="about.html" data-i18n="footer_about_us">About Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4 data-i18n="footer_contact">Contact</h4>
                     <ul>
                         <li><i class="fab fa-whatsapp"></i> +55 (41) 99999-9999</li>
                         <li><i class="fas fa-envelope"></i> rodrigo@coastalnomad.com</li>
@@ -403,10 +463,10 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 CoastalNomad. All rights reserved.</p>
+                <p data-i18n="footer_copyright">&copy; 2024 CoastalNomad. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer_terms">Terms of Service</a>
                     <a href="admin.html" style="opacity: 0.5;">Admin</a>
                 </div>
             </div>
@@ -415,6 +475,7 @@
 
     <!-- Scripts -->
     <script src="js/data.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
 </body>

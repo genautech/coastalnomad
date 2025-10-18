@@ -13,13 +13,20 @@ class AdminDashboard {
     }
 
     init() {
+        console.log('🚀 Admin Dashboard initializing...');
         this.loadData();
+        console.log('📊 Data loaded:', {
+            contacts: this.contacts.length,
+            properties: this.properties.length,
+            amenities: this.amenities.length
+        });
         this.updateDashboard();
         this.renderContacts();
         this.renderFunnel();
         this.renderProperties();
         this.renderAmenities();
         this.renderActivities();
+        console.log('✅ Admin Dashboard initialized successfully!');
     }
 
     loadData() {
@@ -44,8 +51,17 @@ class AdminDashboard {
         
         // Load properties from data.js if admin_properties is empty
         if (this.properties.length === 0 && typeof propertiesData !== 'undefined') {
+            console.log('📦 Loading properties from data.js:', propertiesData.length);
             this.properties = propertiesData.map(p => ({...p, active: true}));
             this.saveData();
+        }
+        
+        // Auto-load demo data on first access if no contacts exist
+        const firstTimeUser = !localStorage.getItem('admin_dashboard_initialized');
+        if (firstTimeUser && this.contacts.length === 0) {
+            console.log('🎬 First time user detected, loading demo data automatically...');
+            this.loadDemoDataSilent();
+            localStorage.setItem('admin_dashboard_initialized', 'true');
         }
     }
 
@@ -77,6 +93,71 @@ class AdminDashboard {
             { icon: '🐕', text: 'Pet Friendly' },
             { icon: '♿', text: 'Accessible' }
         ];
+    }
+    
+    loadDemoDataSilent() {
+        const demoContacts = [
+            {
+                name: 'John Smith',
+                email: 'john.smith@email.com',
+                phone: '+1 555-0101',
+                stage: 1,
+                interest: 'Florianópolis',
+                budget: '$500,000 - $800,000',
+                timestamp: new Date(Date.now() - 86400000).toISOString(),
+                source: 'chatbot',
+                lastUpdated: new Date(Date.now() - 86400000).toISOString()
+            },
+            {
+                name: 'Maria Santos',
+                email: 'maria.santos@email.com',
+                phone: '+55 11 98765-4321',
+                stage: 3,
+                interest: 'Balneário Camboriú',
+                budget: '$800,000+',
+                scheduledDate: '2024-11-20',
+                scheduledTime: '14:00',
+                timestamp: new Date(Date.now() - 172800000).toISOString(),
+                source: 'website',
+                lastUpdated: new Date(Date.now() - 172800000).toISOString()
+            },
+            {
+                name: 'David Johnson',
+                email: 'david.j@email.com',
+                phone: '+1 555-0202',
+                stage: 5,
+                interest: 'Curitiba',
+                budget: '$300,000 - $500,000',
+                timestamp: new Date(Date.now() - 259200000).toISOString(),
+                source: 'chatbot',
+                lastUpdated: new Date(Date.now() - 259200000).toISOString()
+            },
+            {
+                name: 'Ana Silva',
+                email: 'ana.silva@email.com',
+                phone: '+55 48 99999-8888',
+                stage: 7,
+                interest: 'Florianópolis',
+                budget: '$500,000 - $800,000',
+                timestamp: new Date(Date.now() - 345600000).toISOString(),
+                source: 'referral',
+                message: 'Adorei os imóveis!',
+                lastUpdated: new Date(Date.now() - 345600000).toISOString()
+            }
+        ];
+        
+        this.contacts = demoContacts;
+        this.addActivity('Sistema iniciado', 'Dados de demonstração carregados automaticamente');
+        this.saveData();
+        console.log('✅ Demo data loaded:', this.contacts.length, 'contacts');
+        
+        // Show welcome banner
+        setTimeout(() => {
+            const welcomeBanner = document.getElementById('welcomeBanner');
+            if (welcomeBanner) {
+                welcomeBanner.style.display = 'block';
+            }
+        }, 500);
     }
 
     updateDashboard() {
@@ -241,13 +322,23 @@ class AdminDashboard {
             
             const container = document.getElementById(`stage${stage}Leads`);
             
+            // Add drag events to allow dropping
+            container.ondragover = (e) => this.handleDragOver(e);
+            container.ondragleave = (e) => this.handleDragLeave(e);
+            container.ondrop = (e) => this.handleDrop(e, stage);
+            
             if (stageContacts.length === 0) {
                 container.innerHTML = '<p style="color: #94a3b8; text-align: center; padding: 20px; font-size: 0.875rem;">Nenhum lead</p>';
             } else {
                 container.innerHTML = stageContacts.map((contact, index) => {
                     const globalIndex = this.contacts.findIndex(c => c === contact);
                     return `
-                        <div class="lead-card" onclick="adminDashboard.viewContact(${globalIndex})">
+                        <div class="lead-card" 
+                             draggable="true" 
+                             data-contact-index="${globalIndex}"
+                             ondragstart="adminDashboard.handleDragStart(event, ${globalIndex})"
+                             ondragend="adminDashboard.handleDragEnd(event)"
+                             onclick="adminDashboard.viewContact(${globalIndex})">
                             <div class="lead-name">${contact.name || 'Sem nome'}</div>
                             <div class="lead-info">${contact.email || contact.phone || '-'}</div>
                             <div class="lead-date">${new Date(contact.timestamp).toLocaleDateString('pt-BR')}</div>
@@ -256,6 +347,98 @@ class AdminDashboard {
                 }).join('');
             }
         }
+    }
+    
+    // DRAG AND DROP HANDLERS
+    handleDragStart(event, contactIndex) {
+        event.stopPropagation();
+        this.draggedContactIndex = contactIndex;
+        event.dataTransfer.effectAllowed = 'move';
+        event.dataTransfer.setData('text/html', event.target.innerHTML);
+        event.target.style.opacity = '0.4';
+    }
+    
+    handleDragOver(event) {
+        if (event.preventDefault) {
+            event.preventDefault();
+        }
+        event.dataTransfer.dropEffect = 'move';
+        
+        // Add visual feedback
+        const container = event.currentTarget;
+        if (container.classList.contains('funnel-leads')) {
+            container.classList.add('drag-over');
+        }
+        
+        return false;
+    }
+    
+    handleDragLeave(event) {
+        const container = event.currentTarget;
+        if (container.classList.contains('funnel-leads')) {
+            container.classList.remove('drag-over');
+        }
+    }
+    
+    handleDragEnd(event) {
+        // Reset opacity when drag ends (whether dropped or cancelled)
+        event.target.style.opacity = '1';
+        
+        // Remove drag-over class from all containers
+        document.querySelectorAll('.funnel-leads').forEach(container => {
+            container.classList.remove('drag-over');
+        });
+    }
+    
+    handleDrop(event, targetStage) {
+        if (event.stopPropagation) {
+            event.stopPropagation();
+        }
+        event.preventDefault();
+        
+        // Remove visual feedback
+        const container = event.currentTarget;
+        if (container.classList.contains('funnel-leads')) {
+            container.classList.remove('drag-over');
+        }
+        
+        if (this.draggedContactIndex !== undefined) {
+            const contact = this.contacts[this.draggedContactIndex];
+            const oldStage = contact.stage;
+            
+            if (oldStage !== targetStage) {
+                contact.stage = targetStage;
+                contact.lastUpdated = new Date().toISOString();
+                this.saveData();
+                this.renderFunnel();
+                this.renderContacts();
+                this.updateDashboard();
+                
+                const stageNames = [
+                    '', // index 0 (unused)
+                    'Consulta Inicial',
+                    'Descoberta',
+                    'Tour Virtual',
+                    'Visita Pessoal',
+                    'Avaliação',
+                    'Negociação',
+                    'Due Diligence',
+                    'Fechamento'
+                ];
+                
+                this.addActivity(
+                    'Lead movido no funil',
+                    `${contact.name} foi movido de "${stageNames[oldStage]}" para "${stageNames[targetStage]}"`
+                );
+            } else {
+                // If dropped in same stage, just re-render to reset opacity
+                this.renderFunnel();
+            }
+            
+            this.draggedContactIndex = undefined;
+        }
+        
+        return false;
     }
 
     // PROPERTIES MANAGEMENT

@@ -36,6 +36,48 @@ git push origin main
 - 👤 **[About](about.html)** - Rodrigo's profile and contact
 - 💬 **Chatbot** - Available on every page (click floating button)
 - 🛡️ **[Admin Panel](admin.html)** - Lead management and conversion funnel
+- 🎯 **[Admin Dashboard](admin-dashboard.html)** - 🆕 Advanced dashboard with drag-and-drop funnel
+- 🧪 **[Test Drag-Drop](test-drag-drop.html)** - Test the new drag-and-drop functionality
+- 🌍 **[Test Language System](test-language-system.html)** - 🆕 Test multilanguage switching (🇺🇸 🇧🇷)
+
+## 🆕 Últimas Implementações (2025-10-17)
+
+### 3️⃣ **Hero Section Melhorado** 🎨 ✅
+**Slideshow Dinâmico + Card de Busca Avançada**
+- ✅ Slideshow automático com 4 paisagens brasileiras
+- ✅ Controles de navegação (← →) e indicadores clicáveis
+- ✅ Auto-play com pausa ao hover
+- ✅ Card de busca separado com layout em grid 2x2
+- ✅ 4 filtros: Location, Property Type, Price, Bedrooms
+- ✅ Design responsivo otimizado para mobile
+- ✅ Transições suaves e animações elegantes
+- 📄 Docs: `HERO-MELHORADO.md`
+
+## 🆕 Implementações Anteriores (2025-10-17)
+
+### 1️⃣ **Drag-and-Drop no Funil de Vendas** ✅
+**Admin Dashboard - Gestão Visual de Leads**
+- ✅ Arraste leads entre as 8 etapas do processo de compra
+- ✅ Feedback visual completo (opacidade, bordas, cursor)
+- ✅ Atualização automática e log de atividades
+- ✅ Sistema 100% funcional e pronto para produção
+- 📄 Docs: `DRAG-DROP-FUNIL.md` | 🧪 Teste: `test-drag-drop.html`
+
+### 2️⃣ **Sistema Multilíngue** 🌍 ✅
+**🇺🇸 Inglês & 🇧🇷 Português em 7 Páginas Públicas**
+- ✅ Seletor visual de idioma no header (bandeiras clicáveis)
+- ✅ Detecção automática do idioma do navegador
+- ✅ Persistência de preferência no localStorage
+- ✅ Traduções instantâneas sem reload da página
+- ✅ Design responsivo (desktop e mobile)
+- ✅ 80+ traduções implementadas
+- ✅ Sistema 100% funcional e pronto para produção
+- 📄 Docs: `MULTILANGUAGE-SYSTEM.md` | 🧪 Teste: `test-language-system.html`
+
+📊 **Resumos Disponíveis**:
+- `IMPLEMENTACOES-COMPLETAS.md` - Resumo executivo
+- `RESUMO-VISUAL.txt` - Guia visual rápido  
+- `LEIA-AQUI.txt` - Início rápido
 
 ## 🎯 Project Overview
 
@@ -221,12 +263,18 @@ git push origin main
   - Status management (New → Contacted → Scheduled → Visited → Negotiating → Closed)
   - Export leads to CSV
   - Delete lead functionality
-- **6-Stage Conversion Funnel**:
-  - 🎯 Novos Contatos (New Contacts)
-  - 📞 Primeiro Contato (First Contact)
-  - 📅 Reunião Agendada (Scheduled Meeting)
-  - 🏠 Visita Realizada (Visit Completed)
+- **8-Stage Conversion Funnel** with Drag-and-Drop ⭐:
+  - 🎯 Consulta Inicial (Initial Consultation)
+  - 🔍 Descoberta (Discovery)
+  - 🖥️ Tour Virtual (Virtual Tour)
+  - 🏠 Visita Pessoal (Personal Visit)
+  - 📊 Avaliação (Evaluation)
   - 💰 Negociação (Negotiation)
+  - 📋 Due Diligence
+  - ✅ Fechamento (Closing)
+  - **Drag-and-drop functionality**: Move leads between stages intuitively
+  - **Visual feedback**: Highlighted drop zones and smooth animations
+  - **Automatic logging**: All movements tracked in activity log
   - ✅ Fechado (Closed)
   - Drag-and-drop lead cards between stages
   - Visual pipeline management
@@ -316,10 +364,11 @@ git push origin main
 - Delete lead option
 - Export to CSV
 
-**Conversion Funnel**
-- Visual pipeline with 6 stages
+**Conversion Funnel** 🆕 Drag-and-Drop
+- Visual pipeline with 8 stages (buying process)
 - Lead cards in each stage
-- Drag cards between stages
+- **Drag-and-drop cards** between stages with visual feedback
+- Automatic data update and activity logging
 - Quick view of lead info
 
 **Property Management**
@@ -730,7 +779,8 @@ This is a demonstration project built for a real estate professional in Curitiba
 ✅ **Social Ready** - Share buttons, viral-friendly
 ✅ **Conversion-Optimized** - Multiple contact points, WhatsApp integration
 ✅ **AI Chatbot** - 24/7 lead capture with appointment scheduling
-✅ **Admin Dashboard** - Complete lead management and conversion funnel
+✅ **Admin Dashboard** - Complete lead management with drag-and-drop funnel
+✅ **Multilanguage System** - English & Brazilian Portuguese with visual selector (🇺🇸 🇧🇷)
 ✅ **No Backend Required** - Fully functional with LocalStorage
 ✅ **Ready for Production** - Can deploy immediately and start generating leads
 

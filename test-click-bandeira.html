@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Automático - Clique na Bandeira</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            padding: 40px;
+            font-family: Arial, sans-serif;
+        }
+        .test-box {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+        .test-box h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .translated-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-left: 4px solid #0077CC;
+            font-size: 18px;
+        }
+        .language-selector {
+            display: inline-flex;
+            gap: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+        }
+        .language-flag {
+            font-size: 2rem;
+            padding: 10px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .language-flag:hover {
+            border-color: #0077CC;
+            transform: translateY(-2px);
+        }
+        .language-flag.active {
+            border-color: #0077CC;
+            background: linear-gradient(135deg, rgba(0, 119, 204, 0.08) 0%, rgba(0, 166, 166, 0.08) 100%);
+        }
+        #auto-test-btn {
+            background: #0077CC;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        #auto-test-btn:hover {
+            background: #005FA3;
+        }
+        .log-item {
+            padding: 5px 10px;
+            margin: 3px 0;
+            background: #fff;
+            border-left: 3px solid #00A6A6;
+            font-family: monospace;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste Automático do Seletor de Idioma</h1>
+
+    <div class="test-box">
+        <h3>Seletor de Idioma</h3>
+        <div class="language-selector">
+            <button class="language-flag" data-lang="en" title="English">🇺🇸</button>
+            <button class="language-flag" data-lang="pt-BR" title="Português">🇧🇷</button>
+        </div>
+        <button id="auto-test-btn">▶️ TESTAR AUTOMATICAMENTE</button>
+    </div>
+
+    <div class="test-box">
+        <h3>Elementos Traduzidos</h3>
+        <div class="translated-item" data-i18n="nav_home">Home</div>
+        <div class="translated-item" data-i18n="nav_properties">Properties</div>
+        <div class="translated-item" data-i18n="nav_events">Events & Travel</div>
+        <div class="translated-item" data-i18n="nav_buying_process">How to Buy</div>
+        <div class="translated-item" data-i18n="nav_blog">Blog</div>
+        <div class="translated-item" data-i18n="nav_about">About</div>
+        <div class="translated-item" data-i18n="btn_contact">Contact Us</div>
+    </div>
+
+    <div class="test-box">
+        <h3>Log de Eventos</h3>
+        <div id="event-log"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/i18n.js"></script>
+    <script>
+        const eventLog = document.getElementById('event-log');
+
+        function addLog(message, color = '#00A6A6') {
+            const logItem = document.createElement('div');
+            logItem.className = 'log-item';
+            logItem.style.borderLeftColor = color;
+            logItem.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            eventLog.appendChild(logItem);
+            eventLog.scrollTop = eventLog.scrollHeight;
+        }
+
+        // Intercepta console.log
+        const originalLog = console.log;
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const message = args.join(' ');
+            if (message.includes('🌍') || message.includes('🚩') || message.includes('🔄') || message.includes('✅') || message.includes('📝')) {
+                addLog(message);
+            }
+        };
+
+        // Monitora eventos de mudança de idioma
+        document.addEventListener('languageChanged', (e) => {
+            addLog(`🎉 Idioma mudou para: ${e.detail.language}`, '#FF6B6B');
+        });
+
+        // Teste automático
+        document.getElementById('auto-test-btn').addEventListener('click', async () => {
+            addLog('🚀 INICIANDO TESTE AUTOMÁTICO', '#0077CC');
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+            addLog('1️⃣ Clicando na bandeira brasileira 🇧🇷...', '#0077CC');
+            
+            const brFlag = document.querySelector('[data-lang="pt-BR"]');
+            if (brFlag) {
+                brFlag.click();
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Verifica se traduziu
+                const homeElement = document.querySelector('[data-i18n="nav_home"]');
+                if (homeElement) {
+                    if (homeElement.textContent === 'Início') {
+                        addLog('✅ SUCESSO! "Home" virou "Início"', '#28a745');
+                    } else {
+                        addLog(`❌ FALHOU! Texto atual: "${homeElement.textContent}"`, '#dc3545');
+                    }
+                }
+            } else {
+                addLog('❌ Bandeira brasileira não encontrada!', '#dc3545');
+            }
+            
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            addLog('2️⃣ Clicando na bandeira americana 🇺🇸...', '#0077CC');
+            
+            const enFlag = document.querySelector('[data-lang="en"]');
+            if (enFlag) {
+                enFlag.click();
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Verifica se voltou
+                const homeElement = document.querySelector('[data-i18n="nav_home"]');
+                if (homeElement) {
+                    if (homeElement.textContent === 'Home') {
+                        addLog('✅ SUCESSO! "Início" voltou para "Home"', '#28a745');
+                    } else {
+                        addLog(`❌ FALHOU! Texto atual: "${homeElement.textContent}"`, '#dc3545');
+                    }
+                }
+            } else {
+                addLog('❌ Bandeira americana não encontrada!', '#dc3545');
+            }
+            
+            addLog('🏁 TESTE CONCLUÍDO', '#0077CC');
+        });
+
+        // Log inicial
+        window.addEventListener('load', () => {
+            addLog('📄 Página carregada');
+            setTimeout(() => {
+                if (window.i18nManager) {
+                    addLog(`✅ i18nManager disponível (idioma: ${window.i18nManager.currentLanguage})`);
+                } else {
+                    addLog('❌ i18nManager NÃO disponível!', '#dc3545');
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>

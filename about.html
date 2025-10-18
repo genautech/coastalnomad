@@ -25,19 +25,33 @@
         <div class="container">
             <div class="nav-content">
                 <a href="index.html" class="logo">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <span>CoastalNomad</span>
+                    <div class="logo-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-brand">CoastalNomad</span>
+                        <span class="logo-tagline">by <strong>Rodrigo Torrezan</strong></span>
+                    </div>
                 </a>
                 <div class="nav-links" id="navLinks">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="properties.html" class="nav-link">Properties</a>
-                    <a href="events-travel.html" class="nav-link">Events & Travel</a>
-                    <a href="buying-process.html" class="nav-link">How to Buy</a>
-                    <a href="blog.html" class="nav-link">Blog</a>
-                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+                    <a href="properties.html" class="nav-link" data-i18n="nav_properties">Properties</a>
+                    <a href="events-travel.html" class="nav-link" data-i18n="nav_events">Events & Travel</a>
+                    <a href="buying-process.html" class="nav-link" data-i18n="nav_buying_process">How to Buy</a>
+                    <a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+                    <a href="about.html" class="nav-link active" data-i18n="nav_about">About</a>
                     <a href="https://wa.me/5541999999999?text=Hi!%20I'm%20interested%20in%20coastal%20properties" target="_blank" class="btn btn-primary btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> Contact Us
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="btn_contact">Contact Us</span>
                     </a>
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <button class="language-flag" data-lang="en" title="English">
+                            🇺🇸
+                        </button>
+                        <button class="language-flag" data-lang="pt-BR" title="Português">
+                            🇧🇷
+                        </button>
+                    </div>
                 </div>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
@@ -50,8 +64,8 @@
     <section class="about-hero">
         <div class="container">
             <div class="about-hero-content">
-                <h1>Your Partner in Finding Paradise</h1>
-                <p>Helping digital nomads discover their perfect coastal home in Brazil since 2010</p>
+                <h1 data-i18n="about_hero_title">Your Partner in Finding Paradise</h1>
+                <p data-i18n="about_hero_subtitle">Helping digital nomads discover their perfect coastal home in Brazil since 2010</p>
             </div>
         </div>
     </section>
@@ -61,27 +75,27 @@
         <div class="container">
             <div class="mission-content">
                 <div class="mission-text">
-                    <h2>Our Mission</h2>
-                    <p class="lead">We believe that where you live should inspire how you live. That's why we're dedicated to connecting digital nomads with exceptional coastal properties in Brazil's most beautiful regions.</p>
-                    <p>For over a decade, we've specialized in helping remote workers, entrepreneurs, and location-independent professionals find their perfect balance between work and paradise. We understand the unique needs of digital nomads – reliable internet, inspiring surroundings, vibrant communities, and smart investment opportunities.</p>
-                    <p>Our deep local knowledge, combined with our international perspective, allows us to provide unmatched service to clients from around the world.</p>
+                    <h2 data-i18n="about_mission_title">Our Mission</h2>
+                    <p class="lead" data-i18n="about_mission_lead">We believe that where you live should inspire how you live. That's why we're dedicated to connecting digital nomads with exceptional coastal properties in Brazil's most beautiful regions.</p>
+                    <p data-i18n="about_mission_p1">For over a decade, we've specialized in helping remote workers, entrepreneurs, and location-independent professionals find their perfect balance between work and paradise. We understand the unique needs of digital nomads – reliable internet, inspiring surroundings, vibrant communities, and smart investment opportunities.</p>
+                    <p data-i18n="about_mission_p2">Our deep local knowledge, combined with our international perspective, allows us to provide unmatched service to clients from around the world.</p>
                 </div>
                 <div class="mission-stats">
                     <div class="stat-card">
                         <div class="stat-number">150+</div>
-                        <div class="stat-label">Properties Sold</div>
+                        <div class="stat-label" data-i18n="about_stat_props">Properties Sold</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">30+</div>
-                        <div class="stat-label">Countries Served</div>
+                        <div class="stat-label" data-i18n="about_stat_countries">Countries Served</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">4.9</div>
-                        <div class="stat-label">★ Average Rating</div>
+                        <div class="stat-label" data-i18n="about_stat_rating">★ Average Rating</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">15+</div>
-                        <div class="stat-label">Years Experience</div>
+                        <div class="stat-label" data-i18n="about_stat_years">Years Experience</div>
                     </div>
                 </div>
             </div>
@@ -92,8 +106,8 @@
     <section class="realtor-profile-section">
         <div class="container">
             <div class="section-header">
-                <h2>Meet Your Expert</h2>
-                <p>Local knowledge. International perspective. Dedicated service.</p>
+                <h2 data-i18n="about_expert_title">Meet Your Expert</h2>
+                <p data-i18n="about_expert_subtitle">Local knowledge. International perspective. Dedicated service.</p>
             </div>
             
             <div class="realtor-profile-card">
@@ -101,7 +115,7 @@
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop" alt="Pedro Silva" class="realtor-main-photo">
                     <div class="realtor-quick-info">
                         <h3>Rodrigo Torrezan</h3>
-                        <p class="realtor-position">Founder & Coastal Properties Specialist</p>
+                        <p class="realtor-position" data-i18n="about_rodrigo_position">Founder & Coastal Properties Specialist</p>
                         <div class="realtor-languages">
                             <span><i class="fas fa-language"></i> English</span>
                             <span><i class="fas fa-language"></i> Portuguese</span>
@@ -112,17 +126,17 @@
                 
                 <div class="realtor-bio-col">
                     <div class="realtor-story">
-                        <h3>My Story</h3>
-                        <p>Born and raised in Curitiba, I've spent my entire life exploring the stunning coastal regions of Paraná and Santa Catarina. What started as a passion for real estate evolved into a calling – helping people from around the world discover the exceptional quality of life that Brazil's coast offers.</p>
+                        <h3 data-i18n="about_story_title">My Story</h3>
+                        <p data-i18n="about_story_p1">Born and raised in Curitiba, I've spent my entire life exploring the stunning coastal regions of Paraná and Santa Catarina. What started as a passion for real estate evolved into a calling – helping people from around the world discover the exceptional quality of life that Brazil's coast offers.</p>
                         
-                        <p>After spending several years living abroad as a digital nomad myself, I returned to Brazil with a unique understanding of what remote workers truly need in a home. Fast, reliable internet isn't a luxury – it's essential. A vibrant community matters just as much as a beautiful view. And the right property isn't just a place to live; it's an investment in your lifestyle and future.</p>
+                        <p data-i18n="about_story_p2">After spending several years living abroad as a digital nomad myself, I returned to Brazil with a unique understanding of what remote workers truly need in a home. Fast, reliable internet isn't a luxury – it's essential. A vibrant community matters just as much as a beautiful view. And the right property isn't just a place to live; it's an investment in your lifestyle and future.</p>
                         
-                        <p>Today, I lead a dedicated team that combines deep local expertise with international standards of service. We're not just selling properties – we're helping you start your next chapter.</p>
+                        <p data-i18n="about_story_p3">Today, I lead a dedicated team that combines deep local expertise with international standards of service. We're not just selling properties – we're helping you start your next chapter.</p>
                         <p style="margin-top: 16px;"><strong>— Rodrigo Torrezan</strong></p>
                     </div>
                     
                     <div class="realtor-credentials">
-                        <h4>Credentials & Experience</h4>
+                        <h4 data-i18n="about_credentials_title">Credentials & Experience</h4>
                         <ul>
                             <li><i class="fas fa-check-circle"></i> Licensed Real Estate Professional (CRECI)</li>
                             <li><i class="fas fa-check-circle"></i> International Property Specialist Certification</li>
@@ -134,10 +148,10 @@
                     
                     <div class="contact-realtor">
                         <a href="https://wa.me/5541999999999?text=Hi%20Rodrigo!%20I'd%20like%20to%20discuss%20coastal%20properties" target="_blank" class="btn btn-primary btn-large">
-                            <i class="fab fa-whatsapp"></i> Chat with Rodrigo
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="about_chat_rodrigo">Chat with Rodrigo</span>
                         </a>
                         <a href="mailto:rodrigo@coastalnomad.com" class="btn btn-secondary btn-large">
-                            <i class="fas fa-envelope"></i> Send Email
+                            <i class="fas fa-envelope"></i> <span data-i18n="about_send_email">Send Email</span>
                         </a>
                     </div>
                 </div>
@@ -441,7 +455,7 @@
                         <i class="fas fa-umbrella-beach"></i>
                         <span>CoastalNomad</span>
                     </div>
-                    <p>Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
+                    <p data-i18n="footer_about">Your trusted partner for coastal real estate in Southern Brazil. Helping digital nomads find their perfect home since 2024.</p>
                     <div class="social-links">
                         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -451,27 +465,27 @@
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Explore</h4>
+                    <h4 data-i18n="footer_explore">Explore</h4>
                     <ul>
-                        <li><a href="properties.html">All Properties</a></li>
-                        <li><a href="properties.html?location=curitiba">Curitiba</a></li>
-                        <li><a href="properties.html?location=florianopolis">Florianópolis</a></li>
-                        <li><a href="properties.html?location=balneario">Balneário Camboriú</a></li>
+                        <li><a href="properties.html" data-i18n="footer_all_properties">All Properties</a></li>
+                        <li><a href="events-travel.html" data-i18n="footer_events">Events & Travel</a></li>
+                        <li><a href="buying-process.html" data-i18n="footer_how_to_buy">How to Buy</a></li>
+                        <li><a href="showcase.html" data-i18n="footer_portfolio">Portfolio</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Resources</h4>
+                    <h4 data-i18n="footer_resources">Resources</h4>
                     <ul>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog.html?category=guides">Destination Guides</a></li>
-                        <li><a href="blog.html?category=hacks">Nomad Life Hacks</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html" data-i18n="footer_blog">Blog</a></li>
+                        <li><a href="blog.html?category=guides" data-i18n="footer_guides">Destination Guides</a></li>
+                        <li><a href="blog.html?category=hacks" data-i18n="footer_hacks">Nomad Life Hacks</a></li>
+                        <li><a href="about.html" data-i18n="footer_about_us">About Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4 data-i18n="footer_contact">Contact</h4>
                     <ul>
                         <li><i class="fab fa-whatsapp"></i> +55 (41) 99999-9999</li>
                         <li><i class="fas fa-envelope"></i> rodrigo@coastalnomad.com</li>
@@ -481,16 +495,18 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 CoastalNomad. All rights reserved.</p>
+                <p data-i18n="footer_copyright">&copy; 2024 CoastalNomad. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer_terms">Terms of Service</a>
+                    <a href="admin.html" style="opacity: 0.5;">Admin</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/about.js"></script>
     <script src="js/chatbot.js"></script>

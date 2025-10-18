@@ -49,8 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadPropertyDetails() {
     try {
         console.log('📝 Setting title:', currentProperty.title);
-        // Set title and location
-        document.getElementById('propertyTitle').textContent = currentProperty.title;
+        // Set title and location with i18n support
+        const titleElement = document.getElementById('propertyTitle');
+        const titleKey = `property_${currentProperty.id}_title`;
+        titleElement.textContent = window.i18nManager ? window.i18nManager.translate(titleKey) : currentProperty.title;
+        
         document.getElementById('propertyLocation').querySelector('span').textContent = currentProperty.location;
     } catch (error) {
         console.error('❌ Error setting title/location:', error);
@@ -63,7 +66,10 @@ function loadPropertyDetails() {
     document.getElementById('propType').textContent = currentProperty.type.charAt(0).toUpperCase() + currentProperty.type.slice(1);
     
     // Set description
-    document.getElementById('propertyDescription').textContent = currentProperty.description;
+    // Set description with i18n support
+    const descElement = document.getElementById('propertyDescription');
+    const descKey = `property_${currentProperty.id}_desc`;
+    descElement.textContent = window.i18nManager ? window.i18nManager.translate(descKey) : currentProperty.description;
     
     // Set price
     document.getElementById('propertyPrice').textContent = `$${currentProperty.price.toLocaleString()}`;

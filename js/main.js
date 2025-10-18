@@ -147,6 +147,86 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Hero Slideshow
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroIndicators = document.querySelectorAll('.hero-indicator');
+    const heroPrevBtn = document.getElementById('heroPrev');
+    const heroNextBtn = document.getElementById('heroNext');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        // Remove active class from all slides and indicators
+        heroSlides.forEach(slide => slide.classList.remove('active'));
+        heroIndicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // Add active class to current slide and indicator
+        if (heroSlides[index]) {
+            heroSlides[index].classList.add('active');
+        }
+        if (heroIndicators[index]) {
+            heroIndicators[index].classList.add('active');
+        }
+        
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        const next = (currentSlide + 1) % heroSlides.length;
+        showSlide(next);
+    }
+
+    function prevSlide() {
+        const prev = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+        showSlide(prev);
+    }
+
+    function startSlideshow() {
+        slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+
+    function stopSlideshow() {
+        clearInterval(slideInterval);
+    }
+
+    // Initialize slideshow
+    if (heroSlides.length > 0) {
+        startSlideshow();
+
+        // Navigation buttons
+        if (heroPrevBtn) {
+            heroPrevBtn.addEventListener('click', () => {
+                stopSlideshow();
+                prevSlide();
+                startSlideshow();
+            });
+        }
+
+        if (heroNextBtn) {
+            heroNextBtn.addEventListener('click', () => {
+                stopSlideshow();
+                nextSlide();
+                startSlideshow();
+            });
+        }
+
+        // Indicators
+        heroIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                stopSlideshow();
+                showSlide(index);
+                startSlideshow();
+            });
+        });
+
+        // Pause on hover
+        const heroSection = document.getElementById('heroSection');
+        if (heroSection) {
+            heroSection.addEventListener('mouseenter', stopSlideshow);
+            heroSection.addEventListener('mouseleave', startSlideshow);
+        }
+    }
+
     // Smooth Scroll for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
